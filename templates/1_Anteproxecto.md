@@ -9,93 +9,96 @@
   - [4- Requirimentos técnicos](#4--requirimentos-técnicos)
   - [5- Planificación](#5--planificación)
 
-> _EXPLICACIÓN_: Este documento será a páxina de explicación de en que consiste o teu proxecto. Coida a súa redacción con todo ou teu mimo. Elimina posteriormente todas as lineas "EXPLICACIÓN" cando creas finalizada a súa redacción.
-> Podes acompañar á redacción deste ficheiro con imaxes, pero non abuses deles.
-> Explica da mellor forma posible de en que consiste o proxecto é que ferramentas e linguaxes de programación empregarás.
-
 ## 1- Idea do proxecto
 
-> _EXPLICACIÓN_: Realiza unha breve descrición do anteproxecto. Resalta o fundamental *coas túas propias palabras\*\*. Utiliza unha linguaxe correcta,*pero natural\*\*, que o entenda todo o mundo, mesmo e en especial, as persoas que non teñan un coñecemento técnico avanzado. Pode ser un estracto ou resumo de apartados que xa contemples noutros ficheiros.
+Este proyecto consiste en crear una aplicación web para ayudar a gestionar una empresa de forma más sencilla. La plataforma tendrá diferentes tipos de usuarios, como administrador, contabilidad , logistica y cliente, y cada uno podrá acceder a distintas funciones. Desde la aplicación se podrán ver y gestionar pedidos y consultar información relacionada con la contabilidad, facilitando así la organización de la empresa.
 
 ## 2- Contextualización
 
-> _EXPLICACIÓN_: Realiza unha contextualización que identifique as necesidades ás que dará resposta o proxecto.
->
-> Neste apartado trátase de describir a análise realizada e a toma de decisións adoptada sobre aspectos básicos ou iniciais do proxecto como:
->
-> - En que consiste o noso proxecto? Cal é o propósito principal da aplicación a desenvolver? Cales son os obxectivos?
-> - O desenvolvemento da aplicación abre unha oportunidade de negocio? É posible comercializala? Como?
+El proyecto consiste en el desarrollo de una aplicación web destinada a mejorar la gestión interna de una empresa, especialmente en lo relacionado con la gestión de pedidos y el control de cierta información administrativa. La aplicación contará con varios tipos de usuarios o roles: administrador, contabilidad, logística y cliente. Cada uno tendrá acceso a diferentes funcionalidades según sus necesidades. Por ejemplo, los clientes podrán realizar y consultar pedidos, el departamento de logística se encargará de gestionarlos, contabilidad podrá revisar la información económica y el administrador tendrá control general sobre el sistema.
+
+El objetivo principal de la aplicación es centralizar la información de la empresa en una única plataforma, facilitando la organización del trabajo y el acceso a los datos de forma rápida y sencilla.
+
+Además, el desarrollo de esta aplicación podría suponer una oportunidad de negocio, ya que muchas pequeñas y medianas empresas necesitan herramientas de gestión simples y accesibles. La aplicación podría adaptarse a distintas empresas y ofrecerse como un servicio web o como un producto personalizable según las necesidades de cada cliente.
+
 
 ## 3- Estudio de alternativas e viabilidade
 
 ### 3.1- Estudio de alternativas
 
-> _EXPLICACIÓN_: Neste apartado enumerarás unha serie de alternativas que se tiveron en conta e xustificarase a alternativa elixida, razoando o motivo de rexeitamento das outras.
-> Teranse en conta os seguintes criterios de valoración para determinar a mellor alternativa:
->
-> - Técnicos.
-> - Económicos.
-> - Temporalidade.
-> - Recursos.
-> ...
->
-> **Exemplo**
->
-> Un cliente dunha clínica odontolóxica precisa unha plataforma web para rexistrar, xestionar datos dos clientes. Analizamos tres alternativas para o desenrolo:
->
-> Alternativas
->
-> - A1- Desenvolvemento dende cero con API Rest java spring Boot + HTML5 + CSS3 + javascript nativo.
-> - A2- Desenvolvemento desde cero con API Rest Node.js + HTML5 + CSS3 + javascript nativo.
-> - A3- Desenvolvemento desde cero modelo MVC en php + HTML5 + CSS3 + javascript nativo.
-> - A4- Framework larabel + React.js + Tailwind.
-> 
-> | **Alternativa** |  **Viabilidade técnica** | **Viabilidade económica** | **Temporalidade** | **Valoración Global** |
-> | ------ | ------ |  ------ | ------ | ------ |
-> | A1 | Baixa-media (4/10): contrólanse todas as tecnoloxías salvo java spring boot. Spring Boot é un framework empresarial potente, pero con una curva de aprendizaxe considerable. **Fortalezas**: Arquitectura sólida, escalabre, profesional. **Debilidades**: Curva de aprendizaxe alta, configuración complexa. | Medio (6/10): precisaríamos un hosting con soporte java e servidor de aplicacións ou ben un VPS. Custe máis elevado no hosting. O resto de SW gratuíto. | Viabilidade baixa (3/10): curva de aprendizaxe de Spring Boot. Larga duración, de 4 a 6 meses | **5/10** |
-> | A2 | Media-Alta (6/10): Node permite construír APIs REST facilmente. **Fortalezas:** Simplicidade, entorno JavaScript unificado (backend e frontend). **Debilidades:** Necesidade de estruturar ben o proxecto dende cero. | Alta (8/10): Require hosting compatible con Node.js (plataformas como Render, Railway, Verceo o Fly.io) permiten despregar de forma gratuita ou de baixo custe. | Viabilidade media (6/10): duración entre 2 meses e medio e 4. | **7/10** |
-> | A3 | Alta (9/10): non existe curva de aprendizaxe coas linguaxes seleccionadas. **Fortalezas:** Linguaxe coñecido, baixo limiar de entrada, execución rápida. **Debilidades:** Require implementar manualmente aspectos como seguridade, rutas y validacións. | Alta (9/10): Hosting compartido PHP/MySQL dende 2–5 €/mes. | Viabilidade alta (8/10): desenvolvemento e despregue rápido, de 2 a 3 meses.| **9/10** |
-> | A4 | Media (6/10): Laravel ten unha curva de aprendizaxe intermedia. React e Tailwind requiren aprendizaxe adicional. Require coñecementos do frontend moderno. **Fortalezas:** Stack profesional, mantible e modular. **Debilidades:** Exceso de complexidade para un só desarrollador sen experiencia en frameworks front. | Alta (8/10): Ferramentas gratuitas. Laravel require hosting con Composer, PHP ≥ 8 e a miudo acceso SSH. React require build e despregue separado ou integración tipo SPA servida dende Laravel. Hosting adecuados (con SSH e Composer) entre 5-10€/mes. Posible despregue gratuíto de frontend (Vercel) y backend en hosting PHP. | Viabilidade baixa (5/10): curva de aprendizaxe e configuración elevada (4-5 meses) | **5/10** |
+Para el desarrollo de la aplicación web de gestión de pedidos y contabilidad, se han analizado varias alternativas tecnológicas considerando criterios técnicos, económicos, temporalidad y recursos disponibles.
+
+### Alternativas
+
+- **A1 – Desarrollo desde cero con Java Spring Boot + HTML5 + CSS3 + JavaScript nativo**  
+- **A2 – Desarrollo desde cero con Node.js + HTML5 + CSS3 + JavaScript nativo**  
+- **A3 – Desarrollo desde cero con PHP MVC + HTML5 + CSS3 + JavaScript nativo**  
+- **A4 – Desarrollo con Laravel + React.js + Tailwind**  
+- **A5 – Desarrollo con Symfony + PHP + JavaScript + CSS + Twig**  
+
+| **Alternativa** |  **Viabilidad técnica** | **Viabilidad económica** | **Temporalidad** | **Valoración Global** |
+| ------ | ------ | ------ | ------ | ------ |
+| **A1** | Baixa-media (4/10): Java Spring Boot es potente pero con curva de aprendizaje elevada. **Fortalezas:** Arquitectura sólida, escalable, profesional. **Debilidades:** Configuración compleja, tiempo de aprendizaje alto. | Medio (6/10): Necesita hosting con soporte Java o VPS. Software adicional gratuito. | Viabilidad baja (3/10): Desarrollo largo, 4-6 meses. | **5/10** |
+| **A2** | Media-Alta (6/10): Node permite construir APIs REST fácilmente. **Fortalezas:** Simplicidad, entorno JavaScript unificado. **Debilidades:** Hay que estructurar bien el proyecto desde cero. | Alta (8/10): Hosting Node.js económico o gratuito disponible. | Viabilidad media (6/10): Duración 2,5-4 meses. | **7/10** |
+| **A3** | Media (7/10): PHP MVC es conocido, pero requiere programar rutas, seguridad y validaciones manualmente. **Fortalezas:** Lenguaje conocido. **Debilidades:** Mucho trabajo manual, mantenimiento más difícil que con Symfony. | Alta (9/10): Hosting PHP económico y software gratuito. | Viabilidad media (6/10): Desarrollo 2,5-3 meses. | **7/10** |
+| **A4** | Media (6/10): Laravel + React + Tailwind es potente y moderno. **Fortalezas:** Stack profesional y modular. **Debilidades:** No se conoce React ni Tailwind, por lo que habría que invertir tiempo en pruebas y aprendizaje adicional. | Alta (8/10): Herramientas gratuitas, hosting PHP compatible. | Viabilidad baja (5/10): Curva de aprendizaje y configuración elevada, 4-5 meses. | **5/10** |
+| **A5** | Alta (9/10): Symfony organiza rutas, seguridad, base de datos y permite usar Twig para plantillas dinámicas. **Fortalezas:** Desarrollo estructurado, seguro, mantenible. **Debilidades:** Requiere conocer Symfony, aunque se ha visto en prácticas. | Alta (8/10): Hosting PHP económico y compatible. | Alta (8/10): Desarrollo más organizado y rápido que PHP nativo, 2-3 meses. | **9/10** |
+
+
 
 ### 3.2 Xustificación da alternativa
 
->_EXPLICACIÓN_: Tras analizar os resultados seleccionamos unha alternativa. Xustifica a elección indicando as razóns da elección.
->
-> **Exemplo**
->
-> - A alternativa A3 (PHP MVC desde cero) se consolida como a máis viable globalmente, e polo tanto é a elexida xa que:
->
->   - É a máis económica (hosting moi barato).
->   - Ten mínima fricción técnica para o despregue.
->   - Permite obter un prototipo funcional en pouco tempo.
->   - Emprega tecnoloxías coñecidas polo alumno.
->   - Rapidez de desenvolvemento.
->
-> - A2 (Node.js) poderíase considerar como unha opción moderna e máis axeitada se se dispuxera de máis tempo para implementala. Permitiría ampliar os coñecementos técnicos.
->
-> - As opcións A1 (Spring Boot) e A4 (Larabel + React) resultan menos axeitadas pola súa complexidade e custo.
+La alternativa **A5 (Symfony + PHP + Twig)** se consolida como la más viable globalmente, y por eso es la elegida, ya que:
+
+- Permite un desarrollo estructurado, seguro y mantenible gracias a las herramientas que ofrece Symfony.
+- Aprovecha los conocimientos previos de PHP adquiridos en las prácticas, reduciendo la curva de aprendizaje.
+- Facilita la gestión de distintos roles de usuario (administrador, contabilidad, logística y cliente) de manera eficiente.
+- Permite crear un prototipo funcional en un tiempo razonable, optimizando el desarrollo frente a PHP nativo.
+- No requiere aprender frameworks frontend adicionales, ya que Twig permite crear plantillas dinámicas de forma sencilla.
+
+Las alternativas **A1 (Spring Boot)** y **A4 (Laravel + React + Tailwind)** resultan menos adecuadas debido a su complejidad y tiempo de aprendizaje adicional.  
+**A2 (Node.js)** podría considerarse como opción moderna, pero su aprendizaje y configuración desde cero serían más lentos, y **A3 (PHP MVC nativo)** implica demasiado trabajo manual y menos organización del proyecto que Symfony.
 
 ## 4- Requirimentos técnicos
 
->_EXPLICACIÓN_: - Que tecnoloxías son as máis axeitadas para a realización do proxecto?
+Para desarrollar el proyecto se utilizarán las siguientes tecnologías y recursos:
 
-> _EXPLICACIÓN_: Descrición dos medios materiais e das tecnoloxías necesarias que se usarán para desenvolver o proxecto incluíndo as linguaxes de programación frontend e backend, técnicas, librerías, bases de datos, servizos usados, servidores, API’s, etc.
->
-> - **Infraestructura:** dominio web, hosting, servidor de base de datos, almacenamento, memoria, ...
-> - **Backend:** tecnoloxías usadas.
-> - **Frontend:** tecnoloxías usadas
+### Infraestructura
+- **Hosting:** servidor con soporte PHP 8 y Symfony.  
+- **Base de datos:** MySQL para guardar pedidos, usuarios y contabilidad.  
+- **Dominio y almacenamiento:** dominio propio y espacio suficiente en el hosting para la aplicación y la base de datos.  
+
+### Backend
+- **Lenguaje:** PHP 8  
+- **Framework:** Symfony, con Twig para las plantillas.  
+- **Gestión de dependencias:** Composer  
+- **Base de datos:** MySQL con Doctrine ORM  
+
+### Frontend
+- **Lenguajes:** HTML5, CSS3 y JavaScript  
+- **Plantillas:** Twig para generar las vistas de manera sencilla  
+- **Estilo:** CSS básico, sin frameworks adicionales  
 
 ## 5- Planificación
 
-> _EXPLICACIÓN_: Inclúe un calendario co tempo estimado a adicar a cada fase do proxecto.
->
-> O proxecto estará formado polas seguintes fases:
->
-> - Estudo preliminar
-> - Análise
-> - Deseño
-> - Codificación e probas (debe ser a fase máis longa).
->
-> Debe facerse un calendario ou un diagrama de Gantt indicando, para cada fase, a data de inicio, a súa duración e breve descrición das tarefas a realizar.
+El proyecto se desarrollará siguiendo estas fases:
+
+| Fase / Entrega | Fecha de inicio | Duración estimada | Fecha de entrega | Descripción de tareas |
+|----------------|----------------|-----------------|----------------|--------------------|
+| Anteproyecto | 03/03/2026 | 1 semana | 11/03/2026 | Redacción del anteproyecto, definición inicial de la idea y recopilación de información. |
+| Análisis | 11/03/2026 | 1,5 semanas | 23/03/2026 | Definición de funcionalidades, roles de usuario y estructura básica de la base de datos. |
+| Diseño | 22/03/2026 | 2,5 semanas | 08/04/2026 | Diseño de la arquitectura del sistema, wireframes y prototipo de interfaz. |
+| Codificación | 08/04/2026 | 3 semanas |  | Desarrollo de backend con Symfony, frontend con Twig, integración de base de datos, pruebas funcionales y ajustes finales. |
+| 1ª Entrega | - | - | 29/04/2026 | Presentación del avance inicial del proyecto y prototipo funcional. |
+| 2ª Entrega | - | - | 25/05/2026 | Entrega del proyecto completo, con todas las funcionalidades implementadas y pruebas realizadas. |
+| Implantación | 25/05/2026 | 1 semana | 01/06/2026 | Configuración final en el servidor de producción y ajustes finales. |
+| Entrega final | 01/06/2026 | 1 semana | 08/06/2026 | Presentación y entrega del proyecto completo junto con la documentación final. |
+
+
+> **Nota:**
+> - Las fechas de inicio son aproximadas y sirven para planificar el trabajo.  
+> - Las fechas de entrega son las oficiales que aparecen en la memoria del proyecto y marca el fin de estas.  
+> - La fase de **codificación** es la más larga, ya que incluye la implementación completa y las pruebas de todas las funcionalidades.
 
 [**<-Anterior**](../README.md)
+
