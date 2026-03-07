@@ -11,17 +11,16 @@
   - [Guía de contribución](#guía-de-contribución)
   - [Links](#links)
 
-> *EXPLICACIÓN*: Este mento será a "*páxina de aterrizaxe*" do teu proxecto. Será ou primeiro que vexan vos que se interesen por el. Cúida a sua redacción con todo ou mimo. Elimina posteriormente todas as lineas "EXPLICACIÓN*" cando creas finalizada a súa redacción.
-> Podes acompañar á redacción deste ficheiro con imaxes ou gifs, pero non abuses deles.
-
 ## Taboleiro do proyecto
 
-> *EXPLICACIÓN:* neste punto indica se o proyecto está en fase de desenrolo ou finalizado.
+Actualmente, el proyecto se encuentra en **fase de anteproyecto en desarrollo**.  
+Esto significa que se están definiendo los objetivos, funcionalidades, roles de usuario y la planificación general.
 
 ## Descrición
 
-> *EXPLICACIÓN*: Realiza unha breve descrición do proxecto. Non menos de 100 palabras e non máis de 300. Resalta o fundamental *coas túas propias palabras**. Utiliza unha linguaxe correcta, *pero natural**, que o entenda todo o mundo, mesmo e en especial, as persoas que non teñan un coñecemento técnico avanzado. Pode ser un estracto ou resumo de apartados que xa contemples noutros ficheiros.
-> Descrición básica das ferramentas/tecnoloxías/linguaxes de programación,... empregados.
+El proyecto consiste en desarrollar una **aplicación web** para facilitar la gestión interna de una empresa, centralizando información sobre pedidos, contabilidad y roles de usuario. La plataforma contará con distintos tipos de usuarios: **administrador**, **contabilidad**, **logística** y **cliente**, cada uno con acceso a funciones específicas. Los clientes podrán realizar y consultar pedidos, logística gestionará los envíos, contabilidad controlará la información económica y el administrador tendrá supervisión total del sistema.
+
+Para su desarrollo se empleará **Symfony** como framework de backend en **PHP**, usando **Twig** para las plantillas y **CSS** y **JavaScript** para la interfaz y la interacción del usuario. La base de datos será **MySQL**. Esta combinación permite construir una aplicación **estructurada, segura y mantenible**. El proyecto está diseñado para ser escalable y fácil de actualizar, ofreciendo una solución práctica y accesible para pequeñas y medianas empresas.
 
 ## Instalación / Posta en marcha
 
