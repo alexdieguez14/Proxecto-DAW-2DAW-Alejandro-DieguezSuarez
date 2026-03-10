@@ -5,9 +5,14 @@
   - [2- Contextualización](#2--contextualización)
   - [3- Estudio de alternativas e viabilidade](#3--estudio-de-alternativas-e-viabilidade)
     - [3.1- Estudio de alternativas](#31--estudio-de-alternativas)
+    - [Alternativas](#alternativas)
     - [3.2 Xustificación da alternativa](#32-xustificación-da-alternativa)
   - [4- Requirimentos técnicos](#4--requirimentos-técnicos)
+    - [Infraestructura](#infraestructura)
+    - [Backend](#backend)
+    - [Frontend](#frontend)
   - [5- Planificación](#5--planificación)
+  - [Planificación del desarrollo del proyecto](#planificación-del-desarrollo-del-proyecto)
 
 ## 1- Idea do proxecto
 
@@ -81,24 +86,42 @@ Para desarrollar el proyecto se utilizarán las siguientes tecnologías y recurs
 
 ## 5- Planificación
 
-El proyecto se desarrollará siguiendo estas fases:
+```mermaid
+gantt
+title Planificación del proyecto
+dateFormat  YYYY-MM-DD
 
-| Fase / Entrega | Fecha de inicio | Duración estimada | Fecha de entrega | Descripción de tareas |
-|----------------|----------------|-----------------|----------------|--------------------|
-| Anteproyecto | 03/03/2026 | 1 semana | 11/03/2026 | Redacción del anteproyecto, definición inicial de la idea y recopilación de información. |
-| Análisis | 11/03/2026 | 1,5 semanas | 23/03/2026 | Definición de funcionalidades, roles de usuario y estructura básica de la base de datos. |
-| Diseño | 22/03/2026 | 2,5 semanas | 08/04/2026 | Diseño de la arquitectura del sistema, wireframes y prototipo de interfaz. |
-| Codificación | 08/04/2026 | 3 semanas |  | Desarrollo de backend con Symfony, frontend con Twig, integración de base de datos, pruebas funcionales y ajustes finales. |
-| 1ª Entrega | - | - | 29/04/2026 | Presentación del avance inicial del proyecto y prototipo funcional. |
-| 2ª Entrega | - | - | 25/05/2026 | Entrega del proyecto completo, con todas las funcionalidades implementadas y pruebas realizadas. |
-| Implantación | 25/05/2026 | 1 semana | 01/06/2026 | Configuración final en el servidor de producción y ajustes finales. |
-| Entrega final | 01/06/2026 | 1 semana | 08/06/2026 | Presentación y entrega del proyecto completo junto con la documentación final. |
+Anteproyecto :a1, 2026-03-03, 7d
+Investigación empresa :a2, 2026-03-10, 7d
+Análisis requisitos :a3, 2026-03-17, 7d
+Diseño BD :a4, 2026-03-24, 7d
+Arquitectura :a5, 2026-03-31, 7d
+Diseño interfaz :a6, 2026-04-07, 7d
+Backend :a7, 2026-04-14, 21d
+Frontend :a8, 2026-04-21, 14d
+Integración :a9, 2026-05-05, 7d
+Pruebas :a10, 2026-05-12, 7d
+Correcciones :a11, 2026-05-19, 7d
+Implantación :a12, 2026-05-26, 7d
+Documentación :a13, 2026-06-02, 7d
+```
+## Planificación del desarrollo del proyecto
 
-
-> **Nota:**
-> - Las fechas de inicio son aproximadas y sirven para planificar el trabajo.  
-> - Las fechas de entrega son las oficiales que aparecen en la memoria del proyecto y marca el fin de estas.  
-> - La fase de **codificación** es la más larga, ya que incluye la implementación completa y las pruebas de todas las funcionalidades.
+| Fase / Tarea | Fecha de inicio | Duración estimada | Fecha fin | Descripción |
+|---|---|---|---|---|
+| Definición de la idea y anteproyecto | 03/03/2026 | 1 semana | 10/03/2026 | Redacción del anteproyecto, definición inicial del proyecto y recopilación de información. |
+| Investigación del contexto / empresa | 10/03/2026 | 1 semana | 17/03/2026 | Investigación sobre el sector, análisis de proyectos similares y estudio de las necesidades que resolverá la aplicación. |
+| Análisis de requisitos | 17/03/2026 | 1 semana | 24/03/2026 | Identificación de funcionalidades, definición de usuarios, casos de uso y requisitos del sistema. |
+| Diseño de la base de datos | 24/03/2026 | 1 semana | 31/03/2026 | Modelado de entidades, relaciones y estructura de la base de datos. |
+| Diseño de la arquitectura | 31/03/2026 | 1 semana | 07/04/2026 | Definición de la arquitectura del sistema y organización del proyecto en Symfony. |
+| Diseño de interfaz | 07/04/2026 | 1 semana | 14/04/2026 | Creación de wireframes, prototipo de interfaz y diseño de navegación. |
+| Desarrollo backend | 14/04/2026 | 3 semanas | 05/05/2026 | Implementación de lógica del sistema, controladores, entidades y servicios en Symfony. |
+| Desarrollo frontend | 21/04/2026 | 2 semanas | 05/05/2026 | Creación de vistas con Twig, formularios y estilos de la aplicación. |
+| Integración del sistema | 05/05/2026 | 1 semana | 12/05/2026 | Conexión entre frontend, backend y base de datos. |
+| Pruebas del sistema | 12/05/2026 | 1 semana | 19/05/2026 | Pruebas funcionales del sistema, detección de errores y validación de funcionalidades. |
+| Corrección de errores | 19/05/2026 | 1 semana | 26/05/2026 | Ajustes finales y optimización del sistema. |
+| Implantación | 26/05/2026 | 1 semana | 02/06/2026 | Configuración en servidor de producción y despliegue del proyecto. |
+| Documentación final | 02/06/2026 | 1 semana | 09/06/2026 | Elaboración de manual técnico, manual de usuario y memoria final. |
 
 [**<-Anterior**](../README.md)
 
