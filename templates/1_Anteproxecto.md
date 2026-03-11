@@ -12,7 +12,7 @@
     - [Backend](#backend)
     - [Frontend](#frontend)
   - [5- Planificación](#5--planificación)
-  - [Planificación del desarrollo del proyecto](#planificación-del-desarrollo-del-proyecto)
+ 
 
 ## 1- Idea do proxecto
 
@@ -35,19 +35,21 @@ Para el desarrollo de la aplicación web de gestión de pedidos y contabilidad, 
 
 ### Alternativas
 
-- **A1 – Desarrollo desde cero con Java Spring Boot + HTML5 + CSS3 + JavaScript nativo**  
-- **A2 – Desarrollo desde cero con Node.js + HTML5 + CSS3 + JavaScript nativo**  
+- **A1 – Desarrollo desde cero con [Java Spring Boot](https://spring.io/projects/spring-boot) + HTML5 + CSS3 + JavaScript nativo**  
+- **A2 – Desarrollo desde cero con [Node.js](https://nodejs.org/) + HTML5 + CSS3 + JavaScript nativo**  
 - **A3 – Desarrollo desde cero con PHP MVC + HTML5 + CSS3 + JavaScript nativo**  
-- **A4 – Desarrollo con Laravel + React.js + Tailwind**  
-- **A5 – Desarrollo con Symfony + PHP + JavaScript + CSS + Twig**  
+- **A4 – Desarrollo con [Laravel](https://laravel.com/) + [React.js](https://reactjs.org/) + Tailwind**  
+- **A5 – Desarrollo con [Symfony](https://symfony.com/) + PHP + JavaScript + CSS + Twig**  
+- **A6 – Desarrollo con [Python + Django](https://www.djangoproject.com/) + HTML5 + CSS3 + JavaScript**  
 
 | **Alternativa** |  **Viabilidad técnica** | **Viabilidad económica** | **Temporalidad** | **Valoración Global** |
 | ------ | ------ | ------ | ------ | ------ |
-| **A1** | Baixa-media (4/10): Java Spring Boot es potente pero con curva de aprendizaje elevada. **Fortalezas:** Arquitectura sólida, escalable, profesional. **Debilidades:** Configuración compleja, tiempo de aprendizaje alto. | Medio (6/10): Necesita hosting con soporte Java o VPS. Software adicional gratuito. | Viabilidad baja (3/10): Desarrollo largo, 4-6 meses. | **5/10** |
-| **A2** | Media-Alta (6/10): Node permite construir APIs REST fácilmente. **Fortalezas:** Simplicidad, entorno JavaScript unificado. **Debilidades:** Hay que estructurar bien el proyecto desde cero. | Alta (8/10): Hosting Node.js económico o gratuito disponible. | Viabilidad media (6/10): Duración 2,5-4 meses. | **7/10** |
-| **A3** | Media (7/10): PHP MVC es conocido, pero requiere programar rutas, seguridad y validaciones manualmente. **Fortalezas:** Lenguaje conocido. **Debilidades:** Mucho trabajo manual, mantenimiento más difícil que con Symfony. | Alta (9/10): Hosting PHP económico y software gratuito. | Viabilidad media (6/10): Desarrollo 2,5-3 meses. | **7/10** |
-| **A4** | Media (6/10): Laravel + React + Tailwind es potente y moderno. **Fortalezas:** Stack profesional y modular. **Debilidades:** No se conoce React ni Tailwind, por lo que habría que invertir tiempo en pruebas y aprendizaje adicional. | Alta (8/10): Herramientas gratuitas, hosting PHP compatible. | Viabilidad baja (5/10): Curva de aprendizaje y configuración elevada, 4-5 meses. | **5/10** |
-| **A5** | Alta (9/10): Symfony organiza rutas, seguridad, base de datos y permite usar Twig para plantillas dinámicas. **Fortalezas:** Desarrollo estructurado, seguro, mantenible. **Debilidades:** Requiere conocer Symfony, aunque se ha visto en prácticas. | Alta (8/10): Hosting PHP económico y compatible. | Alta (8/10): Desarrollo más organizado y rápido que PHP nativo, 2-3 meses. | **9/10** |
+| **A1** | Baja-media (4/10): Spring Boot es potente pero con curva de aprendizaje elevada. **Fortalezas:** arquitectura sólida, escalable, profesional. **Debilidades:** configuración compleja y tiempo de aprendizaje alto. | Medio (6/10): Hosting con soporte Java o VPS. Software adicional gratuito. | Baja (3/10): desarrollo largo, 4-6 meses. | **5/10** |
+| **A2** | Media-Alta (6/10): Node permite construir APIs REST fácilmente. **Fortalezas:** simplicidad, entorno JavaScript unificado. **Debilidades:** hay que estructurar bien el proyecto desde cero. | Alta (8/10): hosting Node.js económico o gratuito disponible. | Media (6/10): 2,5-4 meses. | **7/10** |
+| **A3** | Media (7/10): PHP MVC es conocido, pero requiere programar rutas, seguridad y validaciones manualmente. **Fortalezas:** lenguaje conocido. **Debilidades:** mucho trabajo manual, mantenimiento más difícil que con Symfony. | Alta (9/10): Hosting PHP económico y software gratuito. | Media (6/10): 2,5-3 meses. | **7/10** |
+| **A4** | Media (6/10): Laravel + React + Tailwind es potente y moderno. **Fortalezas:** stack profesional y modular. **Debilidades:** no se conoce React ni Tailwind, requiere aprendizaje adicional. | Alta (8/10): herramientas gratuitas, hosting PHP compatible. | Baja (5/10): curva de aprendizaje y configuración elevada, 4-5 meses. | **5/10** |
+| **A5** | Alta (9/10): Symfony organiza rutas, seguridad, base de datos y permite usar Twig para plantillas dinámicas. **Fortalezas:** desarrollo estructurado, seguro, mantenible. **Debilidades:** requiere conocimientos de Symfony, aunque ya se ha visto en prácticas. | Alta (8/10): hosting PHP económico y compatible. | Alta (8/10): desarrollo organizado y rápido, 2-3 meses. | **9/10** |
+| **A6** | Alta (8/10): Django incluye autenticación, ORM y herramientas de seguridad integradas. **Fortalezas:** desarrollo rápido, buena estructura, muchas funcionalidades integradas. **Debilidades:** requiere aprender Python y Django si no se tiene experiencia previa. | Media-Alta (7/10): hosting compatible con Python disponible en la nube. Software libre y gratuito. | Media (6/10): 3-4 meses debido al aprendizaje del framework. | **7/10** |
 
 
 
@@ -68,44 +70,41 @@ Las alternativas **A1 (Spring Boot)** y **A4 (Laravel + React + Tailwind)** resu
 
 Para desarrollar el proyecto se utilizarán las siguientes tecnologías y recursos:
 
-### Infraestructura
-- **Hosting:** servidor con soporte PHP 8 y Symfony.  
-- **Base de datos:** MySQL para guardar pedidos, usuarios y contabilidad.  
-- **Dominio y almacenamiento:** dominio propio y espacio suficiente en el hosting para la aplicación y la base de datos.  
+### Infraestructura:
+- **Dominio web:** dominio de pruebas configurado con DNS apuntando al servidor de la aplicación.  
+- **Hosting / Servidor:** Debian con Apache y PHP 8.2.  
+- **Base de datos:** MySQL (en local para desarrollo y en Railway para producción).  
+- **Almacenamiento:** espacio suficiente en Railway para la base de datos y archivos de la aplicación.  
+- **Memoria:** contenedores Docker para reproducibilidad, gestión de memoria automática por el cloud.  
+- **Seguridad:** HTTPS con certificado SSL de Let's Encrypt.  
+- **Repositorios:** GitHub para control de versiones e integración con el despliegue automático en Railway.  
 
 ### Backend
-- **Lenguaje:** PHP 8  
-- **Framework:** Symfony, con Twig para las plantillas.  
+
+- **Framework:** Symfony 6.x  
+- **Lenguaje:** PHP 8.2  
 - **Gestión de dependencias:** Composer  
-- **Base de datos:** MySQL con Doctrine ORM  
+- **ORM:** Doctrine para gestión de la base de datos MySQL  
+- **Seguridad y roles:** administrador, contabilidad, logística y cliente  
+- **Servicios internos y APIs:** controladores para gestión de pedidos, usuarios y contabilidad  
+- **Comunicación en tiempo real:** Mercure para actualizaciones dinámicas mediante WebSockets  
+- **Generación de documentos:** Dompdf para PDFs  
+- **Pruebas:** PHPUnit para validación del backend  
 
 ### Frontend
-- **Lenguajes:** HTML5, CSS3 y JavaScript  
-- **Plantillas:** Twig para generar las vistas de manera sencilla  
-- **Estilo:** CSS básico, sin frameworks adicionales  
 
+- **Motor de plantillas:** Twig integrado con Symfony  
+- **Lenguajes:** HTML5, CSS3 y JavaScript nativo  
+- **Estilo:** CSS básico sin frameworks adicionales  
+- **Formularios y validaciones:** Symfony Forms y validación del lado cliente con JavaScript  
+- **Interactividad:** actualización en tiempo real mediante Mercure  
+- **Exportación a PDF:** integración con Dompdf para facturas y reportes
+  
 ## 5- Planificación
 
-```mermaid
-gantt
-title Planificación del proyecto
-dateFormat  YYYY-MM-DD
+<img width="8192" height="1962" alt="Versi Project Planning-2026-03-11-173827" src="https://github.com/user-attachments/assets/b6056181-7410-4e3a-aa32-fbd25476970e" />
 
-Anteproyecto :a1, 2026-03-03, 7d
-Investigación empresa :a2, 2026-03-10, 7d
-Análisis requisitos :a3, 2026-03-17, 7d
-Diseño BD :a4, 2026-03-24, 7d
-Arquitectura :a5, 2026-03-31, 7d
-Diseño interfaz :a6, 2026-04-07, 7d
-Backend :a7, 2026-04-14, 21d
-Frontend :a8, 2026-04-21, 14d
-Integración :a9, 2026-05-05, 7d
-Pruebas :a10, 2026-05-12, 7d
-Correcciones :a11, 2026-05-19, 7d
-Implantación :a12, 2026-05-26, 7d
-Documentación :a13, 2026-06-02, 7d
-```
-## Planificación del desarrollo del proyecto
+Planificación del desarrollo del proyecto (versión profesional/demo y codificación extendida)
 
 | Fase / Tarea | Fecha de inicio | Duración estimada | Fecha fin | Descripción |
 |---|---|---|---|---|
@@ -115,13 +114,15 @@ Documentación :a13, 2026-06-02, 7d
 | Diseño de la base de datos | 24/03/2026 | 1 semana | 31/03/2026 | Modelado de entidades, relaciones y estructura de la base de datos. |
 | Diseño de la arquitectura | 31/03/2026 | 1 semana | 07/04/2026 | Definición de la arquitectura del sistema y organización del proyecto en Symfony. |
 | Diseño de interfaz | 07/04/2026 | 1 semana | 14/04/2026 | Creación de wireframes, prototipo de interfaz y diseño de navegación. |
-| Desarrollo backend | 14/04/2026 | 3 semanas | 05/05/2026 | Implementación de lógica del sistema, controladores, entidades y servicios en Symfony. |
-| Desarrollo frontend | 21/04/2026 | 2 semanas | 05/05/2026 | Creación de vistas con Twig, formularios y estilos de la aplicación. |
-| Integración del sistema | 05/05/2026 | 1 semana | 12/05/2026 | Conexión entre frontend, backend y base de datos. |
-| Pruebas del sistema | 12/05/2026 | 1 semana | 19/05/2026 | Pruebas funcionales del sistema, detección de errores y validación de funcionalidades. |
-| Corrección de errores | 19/05/2026 | 1 semana | 26/05/2026 | Ajustes finales y optimización del sistema. |
-| Implantación | 26/05/2026 | 1 semana | 02/06/2026 | Configuración en servidor de producción y despliegue del proyecto. |
-| Documentación final | 02/06/2026 | 1 semana | 09/06/2026 | Elaboración de manual técnico, manual de usuario y memoria final. |
+| Desarrollo backend | 14/04/2026 | 4 semanas | 12/05/2026 | Implementación de lógica del sistema, controladores, entidades y servicios en Symfony, gestión de dependencias con Composer, integración con Mercure para WebSockets y generación de PDFs con Dompdf. Entorno reproducible mediante Docker Compose y control de versiones con Git. |
+| Desarrollo frontend | 21/04/2026 | 3 semanas | 12/05/2026 | Creación de vistas con Twig, formularios y estilos en HTML, CSS y JavaScript nativo. Validación de formularios del lado cliente y actualización dinámica con Mercure. Integración con Dompdf para generación de PDFs. |
+| Integración del sistema | 12/05/2026 | 1 semana | 19/05/2026 | Conexión entre frontend, backend y base de datos; comprobación de comunicación en tiempo real mediante Mercure; despliegue en Railway para pruebas funcionales. |
+| Demo funcional | 19/05/2026 | 1 semana | 26/05/2026 | Presentación de la aplicación a posibles usuarios/profesores para recogida de feedback y pruebas de usabilidad. |
+| Pruebas del sistema | 26/05/2026 | 1 semana | 02/06/2026 | Pruebas funcionales y unitarias del sistema, validación de PDFs y comprobación de la comunicación en tiempo real; envío de correcciones al repositorio GitHub. |
+| Corrección de errores | 02/06/2026 | 1 semana | 09/06/2026 | Ajustes finales, optimización del código y preparación para el pre-lanzamiento; inicio de documentación parcial. |
+| Puesta para venta / Preproducción | 09/06/2026 | 1 semana | 16/06/2026 | Preparación del sistema para lanzamiento: configuración de dominio final, seguridad, backups y verificación de entornos; continuación de documentación parcial. |
+| Implantación | 16/06/2026 | 1 semana | 23/06/2026 | Despliegue definitivo en producción, migración de datos y validación del sistema en Railway. |
+| Documentación final | 23/06/2026 | 1 semana | 30/06/2026 | Completar manual técnico, manual de usuario y memoria final; actualización del repositorio público y envío de correo de entrega. |
 
 [**<-Anterior**](../README.md)
 
