@@ -10,6 +10,7 @@
   - [1.7- Investimentos](#17--investimentos)
     - [1.7.1- Custos](#171--custos)
     - [1.7.2- Ingresos](#172--ingresos)
+      - [Comentarios de viabilidad](#comentarios-de-viabilidad)
   - [1.8- Viabilidade](#18--viabilidade)
     - [1.8.1- Viabilidade técnica](#181--viabilidade-técnica)
     - [1.8.2 - Viabilidade económica](#182---viabilidade-económica)
@@ -71,6 +72,8 @@ Herramientas como **Sage, FacturaDirecta**, o ERPs como **Odoo y SAP Business On
 - Las plataformas económicas como Holded, aunque accesibles, no siempre integran todas las funciones de **gestión integral de pedidos, logística y contabilidad**, ni facilitan la creación de informes dinámicos o generación automática de documentos.
 
 
+**Análisis DAFO:**
+![alt text](analisis_dafo.png)
 
 ## 1.3- Segmento de clientes
 
