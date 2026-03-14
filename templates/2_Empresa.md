@@ -73,6 +73,8 @@ Herramientas como **Sage, FacturaDirecta**, o ERPs como **Odoo y SAP Business On
 
 
 **Análisis DAFO:**
+
+
 ![alt text](analisis_dafo.png)
 
 ## 1.3- Segmento de clientes
