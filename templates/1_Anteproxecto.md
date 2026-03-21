@@ -8,7 +8,7 @@
     - [Alternativas](#alternativas)
     - [3.2 Xustificación da alternativa](#32-xustificación-da-alternativa)
   - [4- Requirimentos técnicos](#4--requirimentos-técnicos)
-    - [Infraestructura](#infraestructura)
+    - [Infraestructura:](#infraestructura)
     - [Backend](#backend)
     - [Frontend](#frontend)
   - [5- Planificación](#5--planificación)
@@ -84,21 +84,27 @@ Para desarrollar el proyecto se utilizarán las siguientes tecnologías y recurs
 - **Framework:** Symfony 6.x  
 - **Lenguaje:** PHP 8.2  
 - **Gestión de dependencias:** Composer  
-- **ORM:** Doctrine para gestión de la base de datos MySQL  
+- **ORM:** Doctrine para la gestión de la base de datos MySQL  
 - **Seguridad y roles:** administrador, contabilidad, logística y cliente  
-- **Servicios internos y APIs:** controladores para gestión de pedidos, usuarios y contabilidad  
-- **Comunicación en tiempo real:** Mercure para actualizaciones dinámicas mediante WebSockets  
-- **Generación de documentos:** Dompdf para PDFs  
-- **Pruebas:** PHPUnit para validación del backend  
+- **Controladores:** gestión de pedidos, usuarios y contabilidad  
+- **Validación de datos:** Symfony Forms (lado servidor)  
+- **Comunicación en tiempo real:** Mercure para el envío de actualizaciones desde el servidor  
+- **Generación de documentos:** Dompdf para la creación de PDFs  
+- **Pruebas:** PHPUnit para la validación del backend  
+- **Motor de plantillas:** Twig (generación de vistas dinámicas)  
 
 ### Frontend
 
-- **Motor de plantillas:** Twig integrado con Symfony  
 - **Lenguajes:** HTML5, CSS3 y JavaScript nativo  
 - **Estilo:** CSS básico sin frameworks adicionales  
-- **Formularios y validaciones:** Symfony Forms y validación del lado cliente con JavaScript  
-- **Interactividad:** actualización en tiempo real mediante Mercure  
-- **Exportación a PDF:** integración con Dompdf para facturas y reportes
+
+- **Funcionalidades en el lado cliente:**
+  - Validación básica de formularios con JavaScript  
+  - Interacción con el usuario (eventos, botones, formularios)  
+  - Actualización dinámica de datos recibidos desde el backend (Mercure)  
+
+- **Visualización:**
+  - Las vistas son generadas en el servidor mediante Twig y renderizadas en el navegador  
   
 ## 5- Planificación
 
