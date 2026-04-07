@@ -81,7 +81,7 @@ Para desarrollar el proyecto se utilizarán las siguientes tecnologías y recurs
 
 ### Backend
 
-- **Framework:** Symfony 6.x  
+- **Framework:** Symfony 7.x  
 - **Lenguaje:** PHP 8.2  
 - **Gestión de dependencias:** Composer  
 - **ORM:** Doctrine para la gestión de la base de datos MySQL  

@@ -32,7 +32,7 @@ Estas son las principales cosas que permitirá hacer la aplicación:
 | Crear pedidos | Los clientes pueden hacer pedidos |
 | Ver pedidos | Los usuarios pueden consultar los pedidos |
 | Cambiar estado de pedidos | Logística puede actualizar el estado (pendiente, enviado, etc.) |
-| Alta de artículos | Logística puede dar de alta nuevos productos para la venta |
+| Alta de artículos | Logística puede dar de alta stock de productos para la venta |
 | Modificar artículos | Logística puede editar información de los productos |
 | Ver datos de contabilidad | Contabilidad puede consultar información económica |
 | Generar facturas | Crear PDFs con los datos de los pedidos |
