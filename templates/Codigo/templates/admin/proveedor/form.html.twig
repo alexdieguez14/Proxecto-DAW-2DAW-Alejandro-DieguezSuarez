@@ -1,0 +1,25 @@
+{% extends 'admin/crud_base.html.twig' %}
+
+{% block crud_content %}
+<div class="crud-header">
+    <h1>{{ titulo }}</h1>
+    <a href="{{ path('admin_proveedor_index') }}" class="btn-back">← Volver</a>
+</div>
+
+<div class="form-card">
+    {{ form_start(form) }}
+        {% for field in form %}
+            {% if not field.rendered and field.vars.name != '_token' %}
+            <div class="form-row">
+                {{ form_label(field) }}
+                {{ form_widget(field) }}
+                {{ form_errors(field) }}
+            </div>
+            {% endif %}
+        {% endfor %}
+        <div class="form-actions">
+            <button type="submit" class="btn-primary">Guardar</button>
+        </div>
+    {{ form_end(form) }}
+</div>
+{% endblock %}

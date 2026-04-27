@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda - O porto do sabor </title>
+    <link rel="stylesheet" href="{{ asset('css/cliente.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/" class="logo">
+                    <img src="{{ asset('images/logo-transparent.png') }} " alt="Mi sitio web">
+                    </a>
+                </li>
+                <li><a href="index.html">Fresco</a></li>
+                <li><a href="tienda.html">Elaborados</a></li>
+                <li><a href="contacto.html">Congelados</a></li>
+                <li><a href="contacto.html">Atmosfera</a></li>
+                {% if app.user %}
+                    <li><a href="#">{{ app.user.email }}</a></li>
+                    <li><a href="{{ path('app_logout') }}">Cerrar sesión</a></li>
+                {% else %}
+                    <li><a href="{{ path('app_login') }}">Iniciar sesión</a></li>
+                {% endif %}
+                <li><a href="contacto.html">Cesta</a></li>
+            </ul>
+        </nav>
+    </header>   
+    <main>
+        <section class="sobreNosotros">
+            <h2>O porto do sabor</h2>
+            <p>En O Porto de Sabor nacemos con una idea muy clara: acercar el auténtico sabor del mar gallego a cada mesa, estés donde estés.</p>
+            <p>Desde el corazón del Salnés trabajamos con producto fresco de la ría para ofrecer lo mejor de nuestra tierra: mejillones, langostinos, marisco y una selección de platos pensados para disfrutar sin complicaciones.</p>
+        </section>
+
+        <section class="masVendidos">
+            <h2>Nuestros Productos más Vendidos</h2>
+            <p></p>
+        </section>
+
+
+
+    <main>
+    <footer>
+        <p>&copy; 2024 O Porto do Sabor. Todos los derechos reservados.</p> 
+    </footer>     
+
+</body>
+</html>
+

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Panel</title>
+
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <ul>
+
+           
+           <li class="logo">
+                <a href="{{ path('app_admin') }}">
+                    <img src="{{ asset('images/logo-transparent.png') }}" alt="Logo empresa">
+                </a>
+            </li>
+
+            
+            <li><a href="{{ path('app_logistica') }}">Logística</a></li>
+            <li><a href="">Tienda</a></li>
+            <li><a href="{{ path('app_contabilidad') }}">Contabilidad</a></li>
+            <li><a href="">Datos maestros</a></li>
+
+            {% if app.user %}
+                <li class="user">👤 {{ app.user.email }}</li>
+                <li><a href="{{ path('app_logout') }}">Cerrar sesión</a></li>
+            {% endif %}
+
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+    <section class="admin">
+        <h1>Panel de administración</h1>
+        <p>Selecciona una sección del menú superior.</p>
+    </section>
+
+</main>
+
+</body>
+</html>

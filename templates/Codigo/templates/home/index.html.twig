@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block stylesheets %}
+<style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; background: #f0f2f5; min-height: 100vh; }
+    nav { background: #1a1a2e; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+    nav span { color: #fff; font-size: .95rem; }
+    nav a { color: #a5b4fc; text-decoration: none; font-size: .95rem; }
+    nav a:hover { color: #fff; }
+    .container { max-width: 700px; margin: 4rem auto; padding: 0 1rem; text-align: center; }
+    .container h1 { font-size: 2rem; color: #1a1a2e; margin-bottom: 1rem; }
+    .container p { color: #555; font-size: 1.1rem; }
+</style>
+{% endblock %}
+
+{% block body %}
+<nav>
+    <span>Bienvenido, {{ app.user.email }}</span>
+    <a href="{{ path('app_logout') }}">Cerrar sesión</a>
+</nav>
+<div class="container">
+    <h1>Panel de inicio</h1>
+    <p>Has iniciado sesión correctamente.</p>
+</div>
+{% endblock %}

@@ -1,0 +1,78 @@
+*,*::after,*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #e8f4fb;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+nav {
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+
+}
+
+nav ul {
+  display: flex;         
+  align-items: center;    
+  list-style: none;
+  justify-content: space-around;
+  align-items: center;       
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  margin-right: 20px;    
+}
+nav a {
+  text-decoration: none;
+  color: #1d6fa5;
+}
+
+/* Logo */
+.logo img {
+  height: 100px;
+  width: auto;
+}
+
+.sobreNosotros h2{
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.sobreNosotros {
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    gap: 3rem;
+    color: #ffffff;
+    background-image: url('../images/bateas.webp'); 
+    background-size: cover;     
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.masVendidos {
+    background-color: #1d6fa5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    gap: 2rem;
+    color: #ffffff;
+}

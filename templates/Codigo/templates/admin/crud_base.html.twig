@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ titulo }}{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+<link rel="stylesheet" href="{{ asset('css/crud.css') }}">
+{% endblock %}
+
+{% block body %}
+<nav>
+    <span class="brand">Panel Administrador</span>
+    <div class="links">
+        <a href="{{ path('admin_articulo_index') }}">Artículos</a>
+        <a href="{{ path('admin_categoria_index') }}">Categorías</a>
+        <a href="{{ path('admin_proveedor_index') }}">Proveedores</a>
+        <a href="{{ path('admin_ubicacion_index') }}">Ubicaciones</a>
+        <a href="{{ path('app_admin') }}">Inicio</a>
+        <a href="{{ path('app_logout') }}" class="logout">Cerrar sesión</a>
+    </div>
+</nav>
+
+<div class="container">
+    {% for msg in app.flashes('success') %}
+        <div class="flash flash-success">{{ msg }}</div>
+    {% endfor %}
+    {% for msg in app.flashes('error') %}
+        <div class="flash flash-error">{{ msg }}</div>
+    {% endfor %}
+
+    {% block crud_content %}{% endblock %}
+</div>
+{% endblock %}

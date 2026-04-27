@@ -1,0 +1,40 @@
+{% extends 'admin/crud_base.html.twig' %}
+{% set titulo = 'Categorías' %}
+
+{% block crud_content %}
+<div class="crud-header">
+    <h1>Categorías</h1>
+    <a href="{{ path('admin_categoria_new') }}" class="btn-primary">+ Nueva categoría</a>
+</div>
+
+{% if categorias is empty %}
+    <p class="empty">No hay categorías registradas.</p>
+{% else %}
+<div class="table-wrapper">
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Artículos</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for c in categorias %}
+            <tr>
+                <td>{{ c.nombre }}</td>
+                <td>{{ c.articulos|length }}</td>
+                <td class="actions">
+                    <a href="{{ path('admin_categoria_edit', {id: c.id}) }}" class="btn-edit">Editar</a>
+                    <form method="post" action="{{ path('admin_categoria_delete', {id: c.id}) }}" onsubmit="return confirm('¿Eliminar esta categoría?')">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete_categoria_' ~ c.id) }}">
+                        <button type="submit" class="btn-delete">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
+{% endblock %}

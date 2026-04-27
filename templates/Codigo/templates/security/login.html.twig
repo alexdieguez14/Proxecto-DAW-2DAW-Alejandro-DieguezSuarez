@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+    <title>Iniciar sesión</title>
+</head>
+<body>
+    <header>
+        <h1>Inicia sesión</h1>
+    </header>
+
+    <main>
+        <div class="portada">
+            <figure>
+                <img src="{{ asset('images/bateas.webp') }}" alt="Portada">
+            </figure>
+        </div>
+
+        <section>
+
+            <figure>
+                <img src="{{ asset('images/logo-transparent.png') }}" alt="logo">
+            </figure>
+        
+
+            <h2>Inicia sesión</h2>
+            <h3>Introduce tus credenciales para iniciar sesión.</h3>
+
+            {% if error %}
+                <p class="alert-error">{{ error.messageKey|trans(error.messageData, 'security') }}</p>
+            {% endif %}
+
+            {{ form_start(form) }}
+                <p>
+                    {{ form_label(form.email) }}
+                    {{ form_widget(form.email) }}
+                    {{ form_errors(form.email) }}
+                </p>
+                <p>
+                    {{ form_label(form.password) }}
+                    {{ form_widget(form.password) }}
+                    {{ form_errors(form.password) }}
+                </p>
+                {# El token CSRF lo gestiona el componente Security, no el Form #}
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                <button type="submit" class="btn">Iniciar sesión</button>
+            {{ form_end(form, {render_rest: false}) }}
+
+            <p class="link-registro">¿No tienes cuenta? <a href="{{ path('app_register') }}">Regístrate</a></p>
+
+        </section>
+    </main>
+</body>
+</html>

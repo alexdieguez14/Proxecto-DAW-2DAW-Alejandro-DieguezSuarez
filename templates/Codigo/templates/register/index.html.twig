@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ asset('css/register.css') }}">
+    <title>Crear Cuenta</title>
+</head>
+
+<body>
+    <header>
+        <h1>Crear Cuenta</h1>
+    </header>
+
+    <main>
+        <div class="portada">
+            <figure>
+                <img src="{{ asset('images/logo-transparent.png') }}" alt="Portada">
+            </figure>
+        </div>
+        <section class="card">
+                <h2>Descubre O Porto do Sabor</h2>
+            {% if isAdmin %}
+                <h3>Alta de empleado</h3>
+                <p class="sub">Crea un usuario con rol de Logística o Contabilidad.</p>
+            {% else %}
+                <h3>Crear cuenta</h3>
+                <p class="sub">Regístrate como cliente.</p>
+            {% endif %}
+
+            {% for flash in app.flashes('error') %}
+                <p class="alert-error">{{ flash }}</p>
+            {% endfor %}
+
+            {% if success %}
+                <p class="alert-success">{{ success }}</p>
+            {% endif %}
+
+            {{ form_start(form) }}
+                {% for field in form %}
+                    {% if not field.rendered and field.vars.name != '_token' %}
+                    <p class="campos-formulario">
+                        {{ form_label(field) }}
+                        {{ form_widget(field) }}
+                        {{ form_errors(field) }}
+                    </p>
+                    {% endif %}
+                {% endfor %}
+                <button type="submit" class="btn">
+                    {% if isAdmin %}Crear empleado{% else %}Registrarse{% endif %}
+                </button>
+            {{ form_end(form) }}
+
+            {% if isAdmin %}
+                <a href="{{ path('app_admin') }}" class="back">Volver al panel</a>
+            {% else %}
+                <a href="{{ path('app_login') }}" class="back">Ya tengo cuenta</a>
+            {% endif %}
+        </section>
+</body>
+
+</html>
+
+

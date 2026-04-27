@@ -1,0 +1,44 @@
+{% extends 'admin/crud_base.html.twig' %}
+{% set titulo = 'Ubicaciones de almacén' %}
+
+{% block crud_content %}
+<div class="crud-header">
+    <h1>Ubicaciones de almacén</h1>
+    <a href="{{ path('admin_ubicacion_new') }}" class="btn-primary">+ Nueva ubicación</a>
+</div>
+
+{% if ubicaciones is empty %}
+    <p class="empty">No hay ubicaciones registradas.</p>
+{% else %}
+<div class="table-wrapper">
+    <table>
+        <thead>
+            <tr>
+                <th>Pasillo</th>
+                <th>Estantería</th>
+                <th>Nivel</th>
+                <th>Artículos</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for u in ubicaciones %}
+            <tr>
+                <td>{{ u.pasillo }}</td>
+                <td>{{ u.estanteria }}</td>
+                <td>{{ u.nivel }}</td>
+                <td>{{ u.articulos|length }}</td>
+                <td class="actions">
+                    <a href="{{ path('admin_ubicacion_edit', {id: u.id}) }}" class="btn-edit">Editar</a>
+                    <form method="post" action="{{ path('admin_ubicacion_delete', {id: u.id}) }}" onsubmit="return confirm('¿Eliminar esta ubicación?')">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete_ubicacion_' ~ u.id) }}">
+                        <button type="submit" class="btn-delete">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
+{% endblock %}

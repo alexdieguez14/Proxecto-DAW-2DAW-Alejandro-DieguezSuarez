@@ -1,0 +1,46 @@
+{% extends 'admin/crud_base.html.twig' %}
+{% set titulo = 'Proveedores' %}
+
+{% block crud_content %}
+<div class="crud-header">
+    <h1>Proveedores</h1>
+    <a href="{{ path('admin_proveedor_new') }}" class="btn-primary">+ Nuevo proveedor</a>
+</div>
+
+{% if proveedores is empty %}
+    <p class="empty">No hay proveedores registrados.</p>
+{% else %}
+<div class="table-wrapper">
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Contacto</th>
+                <th>Teléfono</th>
+                <th>Email</th>
+                <th>Artículos</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for p in proveedores %}
+            <tr>
+                <td>{{ p.nombre }}</td>
+                <td>{{ p.contacto ?: '—' }}</td>
+                <td>{{ p.telefono ?: '—' }}</td>
+                <td>{{ p.email ?: '—' }}</td>
+                <td>{{ p.articulos|length }}</td>
+                <td class="actions">
+                    <a href="{{ path('admin_proveedor_edit', {id: p.id}) }}" class="btn-edit">Editar</a>
+                    <form method="post" action="{{ path('admin_proveedor_delete', {id: p.id}) }}" onsubmit="return confirm('¿Eliminar este proveedor?')">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete_proveedor_' ~ p.id) }}">
+                        <button type="submit" class="btn-delete">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logística</title>
+
+    <link rel="stylesheet" href="{{ asset('css/logistica.css') }}">
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <ul>
+
+            <!-- LOGO -->
+            <li class="logo">
+                <a href="admin.html">
+                    <img src="images/logo-transparent.png" alt="Logo empresa">
+                </a>
+            </li>
+
+            <!-- MENÚ LOGÍSTICA -->
+            <li><a href="pedidos.html">Pedidos</a></li>
+            <li><a href="almacen.html">Almacén</a></li>
+            <li><a href="inventario.html">Inventario</a></li>
+
+            {% if app.user %}
+                <li class="user">👤 {{ app.user.email }}</li>
+                <li><a href="{{ path('app_logout') }}">Cerrar sesión</a></li>
+            {% endif %}
+
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section class="logistica">
+        <h1>Panel de Logística</h1>
+        <p>Gestión de pedidos, almacén e inventario.</p>
+    </section>
+</main>
+
+</body>
+</html>

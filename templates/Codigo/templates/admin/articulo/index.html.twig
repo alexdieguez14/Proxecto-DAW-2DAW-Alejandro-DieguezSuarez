@@ -1,0 +1,52 @@
+{% extends 'admin/crud_base.html.twig' %}
+{% set titulo = 'Artículos' %}
+
+{% block crud_content %}
+<div class="crud-header">
+    <h1>Artículos</h1>
+    <a href="{{ path('admin_articulo_new') }}" class="btn-primary">+ Nuevo artículo</a>
+</div>
+
+{% if articulos is empty %}
+    <p class="empty">No hay artículos registrados.</p>
+{% else %}
+<div class="table-wrapper">
+    <table>
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Categoría</th>
+                <th>Precio</th>
+                <th>Peso (kg)</th>
+                <th>Stock</th>
+                <th>Cantidad</th>
+                <th>Proveedor</th>
+                <th>Ubicación</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for a in articulos %}
+            <tr>
+                <td>{{ a.titulo }}</td>
+                <td>{{ a.categoria ? a.categoria.nombre : '—' }}</td>
+                <td>{{ a.precio|number_format(2, ',', '.') }} €</td>
+                <td>{{ a.peso }}</td>
+                <td>{{ a.stock }}</td>
+                <td>{{ a.cantidad }}</td>
+                <td>{{ a.proveedor ? a.proveedor.nombre : '—' }}</td>
+                <td>{{ a.ubicacion ? a.ubicacion : '—' }}</td>
+                <td class="actions">
+                    <a href="{{ path('admin_articulo_edit', {id: a.id}) }}" class="btn-edit">Editar</a>
+                    <form method="post" action="{{ path('admin_articulo_delete', {id: a.id}) }}" onsubmit="return confirm('¿Eliminar este artículo?')">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete_articulo_' ~ a.id) }}">
+                        <button type="submit" class="btn-delete">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
+{% endblock %}
