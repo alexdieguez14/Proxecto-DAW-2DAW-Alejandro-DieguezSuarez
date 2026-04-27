@@ -20,11 +20,13 @@ Este proyecto consiste en crear una aplicación web para ayudar a gestionar una 
 
 ## 2- Contextualización
 
-El proyecto consiste en el desarrollo de una aplicación web destinada a mejorar la gestión interna de una empresa, especialmente en lo relacionado con la gestión de pedidos y el control de cierta información administrativa. La aplicación contará con varios tipos de usuarios o roles: administrador, contabilidad, logística y cliente. Cada uno tendrá acceso a diferentes funcionalidades según sus necesidades. Por ejemplo, los clientes podrán realizar y consultar pedidos, el departamento de logística se encargará de gestionarlos, contabilidad podrá revisar la información económica y el administrador tendrá control general sobre el sistema.
+El proyecto consiste en el desarrollo de una aplicación web destinada a mejorar la gestión interna de una empresa, especialmente en lo relacionado con la gestión de pedidos y el control de cierta información administrativa. Esta solución estará orientada específicamente a pequeñas y medianas empresas (pymes) del sector del mar, como pueden ser empresas pesqueras, distribuidoras de productos del mar o comercializadoras.
+
+La aplicación contará con varios tipos de usuarios o roles: administrador, contabilidad, logística y cliente. Cada uno tendrá acceso a diferentes funcionalidades según sus necesidades. Por ejemplo, los clientes podrán realizar y consultar pedidos, el departamento de logística se encargará de gestionarlos, contabilidad podrá revisar la información económica y el administrador tendrá control general sobre el sistema.
 
 El objetivo principal de la aplicación es centralizar la información de la empresa en una única plataforma, facilitando la organización del trabajo y el acceso a los datos de forma rápida y sencilla.
 
-Además, el desarrollo de esta aplicación podría suponer una oportunidad de negocio, ya que muchas pequeñas y medianas empresas necesitan herramientas de gestión simples y accesibles. La aplicación podría adaptarse a distintas empresas y ofrecerse como un servicio web o como un producto personalizable según las necesidades de cada cliente.
+Además, el desarrollo de esta aplicación podría suponer una oportunidad de negocio, ya que muchas pequeñas y medianas empresas del sector del mar necesitan herramientas de gestión simples y accesibles. La aplicación podría adaptarse a distintas empresas y ofrecerse como un servicio web o como un producto personalizable según las necesidades de cada cliente, añadiendo la posibilidad de escalar funcionalidades, integrar módulos adicionales y garantizar la seguridad y privacidad de los datos gestionados.
 
 
 ## 3- Estudio de alternativas e viabilidade

@@ -13,8 +13,8 @@
 
 ## Taboleiro do proyecto
 
-Actualmente, el proyecto se encuentra en **fase de anteproyecto en desarrollo**.  
-Esto significa que se están definiendo los objetivos, funcionalidades, roles de usuario y la planificación general.
+Actualmente, el proyecto se encuentra en **fase de deseño**.  
+
 
 ## Descrición
 
