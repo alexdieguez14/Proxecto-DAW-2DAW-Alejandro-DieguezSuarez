@@ -16,19 +16,7 @@
 
 ## 2- Prototipos
 
-> A medida que se vai codificando crearanse varios prototipos, preferentemente realizados con Figma. Para cada un indicar unha descrición das funcionalidades implementadas.
->
-> Debes ir incluindo unha mostra representativan dos prototipos da aplicación.
->
-> Os proptotipos axudan no deseño da aplicación. Podes empregar:
->
-> - [Sketch](https://www.sketch.com/)
-> - [Figma](https://www.figma.com/). Recomendada
-> - [Proto.io](https://proto.io/)
->
-> A mellor opción é empregar Figma xa que esta é unha ferramenta en línea colavorativa. 
-> **Comparte o prototipo cos profesores por medio de Figma ou descarga o arquivo local o cal subirás o teu repositorio de GitHub**.
-> **Este prototipos deberían estar listo e enviados o titor para revisalo na primeira semana desta fase.**
+
 
 ## 3- Innovación
 
