@@ -10,13 +10,11 @@
 
 ## 1- Codificación
 
-> Crea unha carpeta no teu repositorio e sube o código frecuentemente.
->
-> Mentres se vai codificando a aplicación, iranse atopando problemas e haberá que ir modificando aspectos do deseño. Estes cambios tamén se deben recoller na documentación.
+Disponible en la carpeta código public -> css y images src -> lógica y templates -> vistas
 
 ## 2- Prototipos
 
-
+https://www.figma.com/design/i31JZJQKN5oTMB2W9SmcyG/Proyecto?node-id=0-1&t=FP1YfoNxoy2z695F-1
 
 ## 3- Innovación
 
