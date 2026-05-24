@@ -19,58 +19,50 @@
 
 ## 1.1- Idea de negocio
 
-La idea de negocio consiste en crear una **aplicación web de gestión empresarial para PYMEs**, que centralice la información de la empresa en un único sistema. La plataforma permitirá a los distintos usuarios de la empresa (administrador, contabilidad, logística y cliente) acceder a funcionalidades específicas según su rol.  
+La idea de negocio consiste en crear una **aplicación web de gestión empresarial especializada para empresas del sector del mar** (distribuidoras de marisco, depuradoras, comercializadoras de pescado y conserveras). La plataforma centraliza la información del negocio en un único sistema accesible según el rol del usuario (administrador, contabilidad, logísticay cliente de tienda).
 
-**Producto central:**  
-- Gestión de pedidos: registro, seguimiento y control en tiempo real.  
-- Gestión contable: control de facturas, gastos y ingresos.  
-- Gestión logística: asignación de pedidos, seguimiento de envíos y control de inventario.  
-- Generación de informes y documentos PDF para clientes y administración interna.  
+**Producto central:** 
+- **Gestión de pedidos de tienda:** Registro, seguimiento y control de pedidos de pescado y marisco fresco en tiempo real.  
+- **Gestión contable y documental:** Control de gastos, ingresos, facturación y **descarga automática de albaranes y facturas** adaptadas al sector.  
+- **Logística y control de almacén:** Control del stock y preparación de pedidos.  
+- **Generación de informes:** Documentos PDF listos para descarga (albaranes de entregas y facturas oficiales).
 
-**Valor añadido:**  
-- Centralización de información para mejorar la organización interna.  
-- Comunicación en tiempo real entre departamentos mediante actualizaciones automáticas.  
-- Reducción de errores humanos y duplicidad de datos.  
-- Plataforma accesible y personalizable para distintas PYMEs, sin requerir inversión en sistemas complejos.  
+**Valor añadido:**   
+- **Comunicación en tiempo real:** Conexión directa mediante actualizaciones automáticas entre lo que se vende en la tienda y el stock real del almacén.  
+- **Digitalización ágil:** Generación y descarga inmediata de albaranes y facturas en formato digital, reduciendo el papeleo en oficina.  
+- **Soporte y formación:** Cursos de iniciación para que los trabajadores del sector del mar y sus clientes se adapten rápidamente a la plataforma sin complicaciones.
 
-**Utilidad:**  
-- Facilita la gestión interna de la empresa.  
-- Permite a los clientes consultar sus pedidos y facturas de forma directa.  
-- Aumenta la eficiencia operativa y reduce costes administrativos.  
+**Utilidad:** 
+- Automatiza el día a día de las empresas del mar (trazabilidad, almacén y facturas).  
+- Permite a las pescaderías o restaurantes clientes consultar el catálogo, hacer pedidos de tienda y descargarse sus propias facturas de forma directa.  
+- Reduce los errores humanos al apuntar pedidos o gestionar el stock del almacén.
 
-**Posibles productos aumentados o complementarios:**  
-- Integración con servicios de correo electrónico para notificaciones automáticas.  
-- Pantalla de estadísticas para la toma de decisiones estratégicas.  
-- Módulo de facturación electrónica adaptado a normativas locales.
-- **Cursos de iniciación para usuarios y clientes**, con tutoriales paso a paso para el uso de la plataforma y formación básica en gestión de pedidos y contabilidad.
+**Posibles productos aumentados o complementarios:** 
+- Módulo de trazabilidad automatizada, etiquetado obligatorio para pescados y mariscos.  
+- Integración con básculas digitales para actualizar el peso real del producto directamente en el albarán.  
+- Cursos de formación digital enfocados a profesionales del sector marino para romper la brecha digital.
 
 ## 1.2- Xustificación da idea
 
-La idea de proyecto surge de la necesidad de **facilitar la gestión integral de pequeñas y medianas empresas (PYMEs)**, que a menudo dependen de herramientas dispersas o procesos manuales para controlar pedidos, contabilidad y logística.  
+La idea surge al detectar que muchas **PYMEs del sector del mar** (especialmente en zonas costeras como Galicia) siguen gestionando sus albaranes, pedidos y almacén de forma manual, en papel o con hojas de cálculo dispersas. Al trabajar con producto fresco y precedero, la falta de control en tiempo real del almacén provoca pérdidas de stock o retrasos en las entregas.
 
-**Necesidades que se pretenden cubrir:**  
-- Centralización de la información de la empresa en un único sistema accesible para todos los departamentos.  
-- Gestión eficiente de pedidos, logística y contabilidad sin duplicidad de datos.  
-- Comunicación en tiempo real entre los distintos roles de la empresa y con los clientes.  
-- Generación automática de documentos e informes que permitan el control económico y logistíco.  
-- **Control de inventario** en tiempo real para evitar faltantes o exceso de stock.  
-- **Gestión de clientes y proveedores**, manteniendo un registro actualizado de contactos y transacciones.  
-- **Acceso remoto seguro**, permitiendo que los empleados trabajen desde cualquier lugar.  
-- **Reducción de errores humanos** mediante automatización de procesos rutinarios.  
-- **Formación y soporte a usuarios**, con cursos de iniciación y tutoriales para facilitar la adopción del sistema.
+**Necesidades que se pretenden cubrir:**
+ - **Control de almacén estricto:** Gestión de stock en tiempo real para evitar roturas de stock o mermas de producto marino.  
+- **Agilidad documental:** Descarga rápida de albaranes y facturas para agilizar las cargas de los transportistas que van a las lonjas o mercados centrales.  
+- **Centralización en un solo sistema:** Unir la tienda, la contabilidad de la empresa y la logística del almacén bajo una misma plataforma.  
+- **Reducción de errores administrativos:** Automatizar la conversión de un pedido de tienda en un albarán de entrega y, posteriormente, en su factura correspondiente.  
+- **Acceso remoto seguro:** Permitir que los comerciales o repartidores consulten el stock de la empresa desde cualquier sitio (móvil o tablet).  
+  
+
+**Aplicaciones o productos existentes:** ERPs gigantes como **SAP** o **Odoo**, o programas como **Holded** y **Sage** ofrecen gestión de stock y facturas. Sin embargo:  
+- Son sistemas **genéricos** (sirven igual para una tienda de ropa que para una ferretería) y no entienden las necesidades específicas del mar (trazabilidad, mermas de peso fresco, rapidez en albaranes de lonja).  
+- Tienen un coste elevado y una configuración muy compleja que requiere semanas de formación.  
+- Nuestra propuesta es un sistema **especializado, asequible, que incluye formación** y que va directo al grano: pedidos de tienda, almacén, albaranes y facturas descargables.
 
 **Situación actual y oportunidad de mercado:**  
 Según el informe **[España Digital 2025](https://www.lamoncloa.gob.es/presidente/actividades/Documents/2020/230720-Espa%C3%B1aDigital_2025.pdf)**, gran parte de las PYMEs españolas **carece de recursos y competencias** para implementar tecnologías digitales de manera eficaz en sus procesos de producción, distribución y gestión. Esto evidencia un **segmento de mercado insuficientemente atendido** y con alta demanda de soluciones digitales accesibles, centralizadas y fáciles de usar.  
 
-Además, los fondos europeos **Next Generation EU**, y programas como **Horizon Europe** y **Digital Europe**, fomentan la modernización digital y la innovación tecnológica en PYMEs, reforzando la **viabilidad y oportunidad de negocio** de este proyecto. La propuesta ofrece una plataforma integral que permite mejorar la productividad, eficiencia y competitividad de las empresas, contribuyendo al desarrollo económico y a la inclusión digital.
-
-**Aplicaciones o productos existentes:**  
-Herramientas como **Sage, FacturaDirecta**, o ERPs como **Odoo y SAP Business One**, así como plataformas más asequibles como **Holded**, ofrecen funcionalidades similares. Sin embargo:  
-- Algunas soluciones son **costosas** y requieren formación especializada (Sage, SAP).  
-- Suelen ser **demasiado complejas** para PYMEs pequeñas o medianas.  
-- No siempre ofrecen **actualización en tiempo real** ni módulos **personalizados según el tipo de usuario**.  
-- Las plataformas económicas como Holded, aunque accesibles, no siempre integran todas las funciones de **gestión integral de pedidos, logística y contabilidad**, ni facilitan la creación de informes dinámicos o generación automática de documentos.
-
+Estando ubicados en **O Salnés (Galicia)**, nos encontramos en el corazón de la producción marisquera y pesquera de las Rías Baixas. Existe un mercado enorme de pequeñas depuradoras, cocederos y distribuidores locales que necesitan dar el salto digital pero rechazan programas genéricos. Además, las ayudas europeas **Next Generation EU** y los planes de modernización pesquera ofrecen la oportunidad perfecta, ya que estas empresas reciben subvenciones directas para contratar este tipo de software.
 
 **Análisis DAFO:**
 
@@ -79,39 +71,27 @@ Herramientas como **Sage, FacturaDirecta**, o ERPs como **Odoo y SAP Business On
 
 ## 1.3- Segmento de clientes
 
-La aplicación está dirigida principalmente a **pequeñas y medianas empresas (PYMEs)** que necesiten una solución sencilla e integral para gestionar su actividad diaria. El objetivo es facilitar la digitalización de procesos como pedidos, contabilidad, logística y atención al cliente, especialmente en empresas que actualmente dependen de métodos manuales o herramientas fragmentadas.
+La aplicación está diseñada para **PYMEs y pequeños negocios del sector del mar** situados principalmente en zonas costeras e industriales de Galicia.
 
-**Segmentos de clientes:**  
-- **Pequeñas empresas**: con menos de 50 empleados, que suelen tener recursos limitados y necesitan soluciones económicas y fáciles de implementar.  
-- **Medianas empresas**: con entre 50 y 250 empleados, que requieren un control más organizado de procesos internos y comunicación entre departamentos.  
-- **Empresas con baja digitalización**: aquellas que aún no utilizan herramientas integrales de gestión y se benefician especialmente de la formación y soporte incluidos.  
+**Segmentos de clientes:** 
+- **Pequeñas depuradoras y cocederos de marisco:** Que necesitan controlar qué entra, qué hay en el almacén de frío y qué sale hacia los clientes.  
+- **Distribuidores y mayoristas de pescado fresco:** Empresas que compran en lonja y venden a restaurantes, pescaderías o cadenas de supermercados, y necesitan generar albaranes de reparto masivos.  
+- **Conserveras locales y comercializadoras:** Negocios que tienen una tienda (física o web) y necesitan que las ventas de pedidos resten stock automáticamente del almacén general.  
 
-**Diferencia entre usuario y cliente:**  
-- **Cliente**: la empresa que contrata el servicio o la licencia de la plataforma.  
-- **Usuario**: las personas dentro de la empresa que utilizarán la aplicación: administradores, contables, personal de logística y clientes que hagan pedidos o consulten información.  
+**Diferencia entre usuario y cliente:** 
+- **Cliente:** La empresa del mar (depuradora, distribuidor) que paga la suscripción mensual del software.  
+- **Usuario:** El operario de almacén que prepara los palets, el contable que emite las facturas, el administrador de la empresa y los propios clientes finales (pescaderías/restaurantes) que entran a la app a hacer pedidos de tienda y descargar sus albaranes.
 
-**Cuantificación aproximada del mercado:**  
-En España, según datos del INE (2024), existen aproximadamente **3,3 millones de empresas**, de las cuales **el 99% son PYMEs**, siendo un mercado muy amplio para soluciones de digitalización.  
-
-Este proyecto se centra en captar inicialmente una **parte pequeña del mercado**, con planes de expansión gradual a medida que la plataforma se consolide y se adapte a las necesidades de diferentes tipos de empresas.
+**Cuantificación aproximada del mercado:** Galicia concentra la mayor actividad pesquera y marisquera de España. Solo en la comarca de **O Salnés y alrededores** existen cientos de pequeñas empresas dedicadas a la comercialización de productos del mar que entran dentro de nuestro perfil de cliente ideal.
 
 ## 1.4- Competencia
-En el mercado actual existen diversas soluciones de software que ayudan a las empresas a gestionar pedidos, contabilidad y logística. Entre las más conocidas se encuentran:
 
-- **Sage**: Un software consolidado con gran presencia en el mercado español y europeo. Se orienta principalmente a empresas medianas y grandes. Es potente y completo, pero suele ser **costoso** y requiere **formación especializada**.  
-- **Odoo**: ERP modular que permite integrar distintos procesos empresariales. Ofrece flexibilidad y múltiples módulos, pero su **personalización y despliegue pueden ser complejos** para PYMEs pequeñas sin soporte técnico.  
-- **SAP Business One**: Solución ERP robusta, enfocada a empresas medianas. Es **muy completa**, pero el coste y la implementación suelen ser elevados, lo que dificulta su adopción por empresas pequeñas.  
-- **Holded**: Plataforma económica y accesible para PYMEs, centrada en contabilidad, facturación y gestión básica de proyectos. Aunque es asequible, **no integra todas las funciones** de manera centralizada ni ofrece personalización avanzada por roles.  
-- **FacturaDirecta**: Herramienta sencilla para facturación y control contable. Es útil para autónomos y pequeñas empresas, pero **carece de funciones integrales** para logística, gestión de pedidos y comunicación entre departamentos.  
+- **Software Genérico (Holded, FacturaDirecta):** Son baratos y estéticos, pero se quedan muy cortos. No manejan bien la logística de almacenes de frío ni la trazabilidad alimentaria, y sus albaranes no están pensados para el transporte de mercancía perecedera.  
+- **Grandes ERPs (Sage, Odoo, SAP Business One):** Son muy potentes y cubren todo, pero sus precios son prohibitivos para una pequeña empresa familiar del mar. Además, configurarlos es tan difícil que los trabajadores suelen abandonar su uso.  
+- **Software sectorial a medida:** Existen algunas consultoras que hacen programas a medida para grandes conserveras, pero requieren inversiones iniciales de miles de euros que una pequeña PYME no se puede permitir.
 
-**Análisis del mercado:**  
-- La mayoría de estas soluciones **no está completamente adaptada a las pequeñas PYMEs** que buscan un sistema económico, fácil de usar y que centralice todos los procesos.  
-- Existe un segmento de mercado **insuficientemente atendido**, especialmente empresas con **baja digitalización** que necesitan formación, soporte y herramientas sencillas.  
-- La competencia se centra en ofrecer funcionalidades parciales, precios altos o soluciones complejas. Esto deja espacio para una **plataforma integral, asequible y fácil de adoptar**, que incluya soporte y cursos de iniciación.  
-
-**Posicionamiento de la nueva idea:**  
-- La plataforma propuesta se diferenciará por ser **económica, modular, intuitiva y personalizada según roles**, con formación incluida para facilitar la digitalización.  
-- Se dirige a **PYMEs pequeñas y medianas**, especialmente aquellas que todavía no cuentan con herramientas integrales de gestión y que buscan mejorar la productividad y el control de su empresa.  
+**Posicionamiento de la nueva idea:** Nos posicionamos justo en el medio: ofrecemos la **especialización y control de albaranes/almacén del sector del mar** que tienen los programas caros, pero con la **facilidad de uso y el precio asequible por suscripción** de las herramientas modernas.
+ 
 
 ## 1.5- Proposta de valor
 
@@ -121,14 +101,14 @@ Ayudamos a **pequeñas y medianas empresas** a gestionar sus pedidos, contabilid
 
 Para poner en marcha esta plataforma, se propone crear la empresa como una **Sociedad de Responsabilidad Limitada (SL)**.
 
-**Por qué esta forma jurídica:**  
-- Los socios solo responden con el capital que aportan, lo que **reduce riesgos personales**.  
-- Es **sencilla de gestionar** en cuanto a trámites fiscales y administrativos.  
-- Permite que la empresa **crezca de manera organizada**, incorporando nuevos socios si hace falta.  
+**Por qué esta forma jurídica:** 
+- Los socios solo responden con el capital aportado (mínimo legal), protegiendo sus bienes personales.  
+- Es la estructura idónea para vender software como servicio (SaaS) a otras empresas.  
+- Ofrece una imagen seria y profesional ante las empresas del mar y permite solicitar subvenciones tecnológicas de la Xunta de Galicia o el IGAPE de forma más ágiles.
 
 ## 1.7- Investimentos
 
-Para poner en marcha la plataforma en **O Salnés, Galicia**, se necesitarán los siguientes recursos e inversiones:  
+Para poner en marcha la plataforma en **O Salnés, Galicia**, se necesitarán los siguientes recursos e inversiones iniciales:  
 
 - **Local y mobiliario:**  
   - Mesas, sillas, estanterías y mobiliario básico: 800 € aprox.  
@@ -137,7 +117,7 @@ Para poner en marcha la plataforma en **O Salnés, Galicia**, se necesitarán lo
 - **Infraestructura tecnológica:**  
   - Servidor web o hosting en la nube: 500 € aprox./año  
   - Dominio web: 15 € aprox./año  
-  - Certificado SSL: gratuito (Let's Encrypt) o 50 € aprox./año  
+  - Certificado SSL: gratuito (Let's Encrypt)  
 
 - **Equipos y dispositivos:**  
   - Ordenadores para el equipo de desarrollo (2-3 unidades): 1.500 € aprox.  
@@ -145,50 +125,60 @@ Para poner en marcha la plataforma en **O Salnés, Galicia**, se necesitarán lo
 
 - **Software y herramientas:**  
   - Licencias de desarrollo y edición (IDE, herramientas gráficas): 200 € aprox.  
-  - Bases de datos y sistemas auxiliares (MySQL, Docker, GitHub): gratuitos o 100 € aprox./año para servicios premium  
+  - Bases de datos y sistemas auxiliares (MySQL, Docker, GitHub): 100 € aprox./año para servicios premium  
 
 - **Marketing y lanzamiento:**  
   - Campañas iniciales en redes sociales y Google Ads: 300 € aprox.  
   - Material de promoción digital y diseño gráfico: 200 € aprox.  
 
-**Total aproximado de inversión inicial:** 4.865 €  
+**Total aproximado de inversión inicial:** 4.415 €  
 
 ### 1.7.1- Custos
-**Se distinguen los siguientes **costos fijos y variables**:  
+
+Se distinguen los siguientes costos fijos y variables basados en la actividad mensual de la empresa:  
+
 **Costos fijos (mensuales):**  
-- Alquiler de oficina: 400 €  
-- Suministros de oficina (agua, electricidad, internet): 100 €  
-- Hosting web y dominio: 50 €  
-- Sueldos del personal: 5.710 € (2 desarrolladores + 1 administrativo)  
-- Seguridad Social y cargas sociales: 1.713 € aprox.  
+- Alquiler de pequeña oficina: 400 €  
+- Suministros (Luz, internet de alta velocidad, agua): 100 €  
+- Infraestructura Cloud (Servidores Symfony + Hub Mercure en producción): 50 €  
+- Sueldos del equipo (2 desarrolladores/soporte + 1 administrativo): 5.710 €  
+- Seguridad Social y cargas sociales: 1.713 €  
+*Subtotal Costos Fijos:* 7.973 €/mes  
 
-**Costos variables (según actividad):**  
-- Material de oficina adicional: 20-50 €  
-- Campañas de marketing y publicidad: 300 € (puede variar según campañas)  
-- Licencias de software o herramientas premium: 50-100 €  
+**Costos variables (mensuales promedio):**  
+- Material de oficina adicional: 35 € (promedio de la horquilla 20-50 €)  
+- Desplazamientos a empresas/puertos para instalaciones y formación: 100 €  
+- Campañas de marketing y publicidad: 300 €  
+- Licencias de software o herramientas premium: 75 € (promedio de la horquilla 50-100 €)  
+*Subtotal Costos Variables:* 510 €/mes  
 
-**Total estimado mensual:** 7.633 € aprox.  
-**Total anual (sumando impuestos y costes sociales):** 91.596 € aprox. 
+**Total estimado mensual (Fijos + Variables):** 8.483 € aprox.  
+**Total anual estimado (Multiplicado por 12 meses):** 101.796 € aprox.
 
 ### 1.7.2- Ingresos
 
-Para calcular los ingresos estimados del negocio, se propone una **política de precios basada en suscripción mensual**, considerando que la plataforma se dirige a pequeñas y medianas empresas en Galicia, especialmente en O Salnés.
+El modelo de ingresos se basa estrictamente en el pago por uso real de la plataforma, dividiéndose en una cuota fija por trabajador y un suplemento según el volumen de documentos de transporte y facturas que gestione la empresa:
 
-La previsión de clientes para el primer año es la siguiente:
-- **Básica:** 70 empresas × 50 €/mes × 12 meses = 42.000 €  
-- **Estándar:** 30 empresas × 100 €/mes × 12 meses = 36.000 €  
-- **Avanzada:** 12 empresas × 200 €/mes × 12 meses = 28.800 €  
+  **Precio por Usuario (Asiento):** 7,99 € / mes por cada cuenta de trabajador activa (personal de administración, comerciales, operarios de almacén de frío, transportistas propios). *Nota: Los clientes de la tienda que entran a hacer pedidos o descargar albaranes tienen acceso gratuito.*
+  **Suplementos por Tráfico (Volumen mensual de albaranes y facturas generadas):**
+    *Tramo 1 (Hasta 350 documentos/mes):* Gratis (Incluido en la cuota base).
+    *Tramo 2 (De 351 a 650 documentos/mes):* +30 € / mes. 
+    *Tramo 3 (De 651 a 950 documentos/mes):* +50 € / mes.
+    *Tramo 4 (Más de 950 documentos/mes):* +70 € / mes.
 
-**Ingresos por subvenciones iniciales:** 10.000 € Igape Innova  
+**Previsión de clientes para el primer año en Galicia:**  
+- **30 Empresas Pequeñas** (Promedio: 5 usuarios [40€] + Tramo 1 [0€]): 30 empresas × 40 €/mes × 12 meses = 14.400 €  
+- **40 Empresas Medianas** (Promedio: 12 usuarios [96€] + Tramo 2 [30€]): 40 empresas × 126 €/mes × 12 meses = 60.480 €  
+- **12 Empresas Grandes** (Promedio: 25 usuarios [200€] + Tramo 4 [70€]): 12 empresas × 270 €/mes × 12 meses = 38.880 €  
+- **Subvención Inicial (IGAPE / Kit Digital):** 10.000 €  
 
-**Total ingresos anuales:** 116.800 €  
-**Total ingresos mensuales promedio:** 116.800 ÷ 12 ≈ 9.733 €/mes  
+**Total ingresos primer año:** 123.760 €  
+**Total ingresos mensuales promedio:** ≈ 10.313 €/mes  
 
 #### Comentarios de viabilidad
-- Estos ingresos cubren de sobra los costes mensuales estimados (7.633 €/mes), dejando un beneficio neto aproximado de 2.100 €/mes.  
-- El negocio será **rentable desde el primer año**, pudiendo reinvertir o crecer según aumente la base de clientes.  
-- Además, se pueden ofrecer **servicios adicionales** (formación, soporte premium o módulos personalizados) para aumentar ingresos y atraer más empresas.  
-- La inclusión de **subvenciones para nuevos emprendedores** proporciona un colchón adicional que asegura la viabilidad económica incluso ante retrasos en la captación de clientes.
+- Al ajustar los costes con los datos reales, vemos que los ingresos mensuales promedio (**10.313 €**) siguen estando bastante por encima de los costes totales mensuales de la S.L. (**8.483 €**), lo que nos deja un colchón de beneficio neto de casi **1.830 € al mes** desde el primer año.
+- Con el beneficio neto del primer año (que asciende a unos 21.964 € sumando la facturación y la subvención, y restando los costes anuales), se recupera y amortiza de sobra la inversión inicial de **4.415 €** necesaria para comprar los ordenadores y montar la oficina.
+- El negocio es económicamente muy sólido: la cuota de 8 € por usuario hace que sea baratísimo para las empresas unirse, pero a nosotros nos asegura la estabilidad financiera para mantener los servidores cloud y pagar las nóminas sin ahogarnos.
 
 ## 1.8- Viabilidade
 
@@ -218,13 +208,22 @@ La previsión de clientes para el primer año es la siguiente:
 
 ### 1.8.2 - Viabilidade económica
 
-- Costes totales: 91.596 €/año  
-- Ingresos previstos: 106.800 €/año  
-- Beneficio neto anual estimado: 15.204 €  
-- Margen suficiente para operar y reinvertir, con flexibilidad para optimizar costes variables.
+- **Costes totales:** 101.796 €/año  
+- **Ingresos previstos (Suscripciones + Subvención):** 123.760 €/año  
+- **Beneficio neto anual estimado (Primer año):** 21.964 €  
+- **Retorno de la inversión:** La inversión inicial de 4.415 € se recupera por completo dentro de los primeros meses de actividad gracias al beneficio neto positivo.
+- **Margen de maniobra:** Contamos con un colchón mensual de casi 1.830 € que otorga a la S.L. un margen suficiente para operar con tranquilidad, asumir picos de tráfico en el servidor y absorber posibles retrasos en los cobros.
 
 ### 1.8.3- Conclusión
-El proyecto es viable tanto técnica como económicamente. Permite operar con un margen suficiente y tiene capacidad de crecer y escalar a largo plazo. Además, existen subvenciones para nuevas empresas que pueden ayudar a cubrir costes iniciales si fuese necesario. Esto asegura que el proyecto pueda mantenerse rentable incluso ante imprevistos y permite reinvertir en su expansión futura.
+El proyecto enfocado al sector del mar es totalmente viable tanto técnica como económicamente. Resuelve una necesidad real y urgente en las PYMEs de nuestra costa mediante un modelo de pago por uso que resulta muy asumible para los clientes. 
+
+Económicamente, la empresa opera en positivo desde el primer año, cubre de sobra los costes de personal y permite recuperar la inversión inicial rápidamente. Además, gracias a que la plataforma está desarrollada desde la base para soportar **varios idiomas**, se abren dos grandes vías de expansión a medio plazo:
+
+1.  **Mercado Galegofalante:** Permite adaptarnos al 100% a la realidad cultural de Galicia, ofreciendo una herramienta en gallego para todas aquellas cooperativas, cofradías y PYMEs marineras que prefieren gestionar su negocio en su idioma propio.
+2.  **Resto de España:** Al poder cambiar el idioma de la interfaz de forma nativa y limpia, el software es perfectamente escalable para dar el salto a cualquier otra comunidad autónoma con costa y puertos (como Asturias, Cantabria, País Vasco, Andalucía o la Comunidad Valenciana), aumentando nuestra base de clientes sin necesidad de rediseñar la aplicación.
+3. **Resto del mundo** Al tener varias opciones de lenguaje se puede poner la aplicación en cualquier lengua del mundo por lo que se podria imprantar en muchos mas lugares.
+
+Esto asegura que el proyecto no solo sea rentable en nuestro entorno local de O Salnés, sino que cuenta con una gran capacidad de crecimiento y escalabilidad a largo plazo.
 
 
 [**<-Anterior**](../../README.md)
