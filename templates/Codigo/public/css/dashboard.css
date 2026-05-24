@@ -1,3 +1,5 @@
+/* Estilos para las vistas del dashboard */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -5,25 +7,25 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: var(--fuente-base);
     min-height: 100vh;
 }
 
 nav {
-    padding: 1rem 2rem;
+    padding: var(--espacio-md) var(--espacio-xl);
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 nav .brand {
-    color: #fff;
+    color: var(--color-blanco);
     font-weight: bold;
 }
 
 nav a {
     text-decoration: none;
-    font-size: .9rem;
+    font-size: var(--texto-sm);
 }
 
 nav a:hover {
@@ -32,85 +34,91 @@ nav a:hover {
 
 .container {
     max-width: 800px;
-    margin: 3rem auto;
-    padding: 0 1rem;
+    margin: var(--espacio-2xl) auto;
+    padding: 0 var(--espacio-md);
 }
 
 .header {
-    background: #fff;
-    border-radius: 10px;
-    padding: 2rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
-    margin-bottom: 1.5rem;
+    background: var(--color-blanco);
+    border-radius: var(--radio-xl);
+    padding: var(--espacio-xl);
+    box-shadow: var(--sombra-sm);
+    margin-bottom: var(--espacio-lg);
 }
 
 h1 {
-    margin-bottom: .25rem;
+    margin-bottom: var(--espacio-xs);
 }
 
 .subtitle {
-    color: #64748b;
+    color: var(--color-texto-suave);
 }
 
-/* Logística */
+/*=============================================
+=            Logística                       =
+=============================================*/
 body.logistica {
-    background: #eff6ff;
+    background: var(--color-pagina);
 }
 
 body.logistica nav {
-    background: #1d4ed8;
+    background: var(--badge-preparacion-color);
 }
 
 body.logistica nav a {
-    color: #bfdbfe;
+    color: var(--badge-preparacion-fondo);
 }
 
 body.logistica .header {
-    border-left: 4px solid #3b82f6;
+    border-left: 4px solid var(--color-accion);
 }
 
 body.logistica h1 {
-    color: #1d4ed8;
+    color: var(--badge-preparacion-color);
 }
 
-/* Cliente */
+/*=============================================
+=            Cliente                         =
+=============================================*/
 body.cliente {
-    background: #f0fdf4;
+    background: var(--color-exito-fondo);
 }
 
 body.cliente nav {
-    background: #15803d;
+    background: var(--color-exito);
 }
 
 body.cliente nav a {
-    color: #bbf7d0;
+    color: var(--color-exito-fondo);
 }
 
 body.cliente .header {
-    border-left: 4px solid #10b981;
+    border-left: 4px solid var(--color-verde);
 }
 
 body.cliente h1 {
-    color: #15803d;
+    color: var(--color-exito);
 }
 
-/* Contabilidad */
+/*=============================================
+=            Contabilidad                    =
+=============================================*/
 body.contabilidad {
-    background: #fffbeb;
+    background: var(--badge-pagado-fondo);
 }
 
 body.contabilidad nav {
-    background: #b45309;
+    background: var(--color-advertencia-oscuro);
 }
 
 body.contabilidad nav a {
-    color: #fde68a;
+    color: var(--badge-pagado-fondo);
 }
 
 body.contabilidad .header {
-    border-left: 4px solid #f59e0b;
+    border-left: 4px solid var(--color-advertencia);
 }
 
 body.contabilidad h1 {
-    color: #b45309;
+    color: var(--color-advertencia-oscuro);
 }

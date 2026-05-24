@@ -1,28 +1,45 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Inicio{% endblock %}
+{% block title %}{{ 'auth.home.title'|trans }}{% endblock %}
 
 {% block stylesheets %}
 <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: Arial, sans-serif; background: #f0f2f5; min-height: 100vh; }
-    nav { background: #1a1a2e; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
-    nav span { color: #fff; font-size: .95rem; }
-    nav a { color: #a5b4fc; text-decoration: none; font-size: .95rem; }
-    nav a:hover { color: #fff; }
-    .container { max-width: 700px; margin: 4rem auto; padding: 0 1rem; text-align: center; }
-    .container h1 { font-size: 2rem; color: #1a1a2e; margin-bottom: 1rem; }
-    .container p { color: #555; font-size: 1.1rem; }
+    body { background: var(--color-pagina); }
+    .inicio-nav {
+        background: var(--color-primario);
+        padding: var(--espacio-md) var(--espacio-xl);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .inicio-nav span { color: var(--color-blanco); font-size: var(--texto-sm); }
+    .inicio-nav a { color: var(--badge-listo-fondo); text-decoration: none; font-size: var(--texto-sm); }
+    .inicio-nav a:hover { color: var(--color-blanco); }
+    .inicio-contenedor {
+        max-width: 700px;
+        margin: var(--espacio-2xl) auto;
+        padding: 0 var(--espacio-md);
+        text-align: center;
+    }
+    .inicio-contenedor h1 { font-size: var(--texto-2xl); color: var(--color-primario); margin-bottom: var(--espacio-md); }
+    .inicio-contenedor p { color: var(--color-texto-suave); font-size: var(--texto-lg); }
 </style>
 {% endblock %}
 
 {% block body %}
-<nav>
-    <span>Bienvenido, {{ app.user.email }}</span>
-    <a href="{{ path('app_logout') }}">Cerrar sesión</a>
-</nav>
-<div class="container">
-    <h1>Panel de inicio</h1>
-    <p>Has iniciado sesión correctamente.</p>
-</div>
+<header>
+    <nav class="inicio-nav">
+        <span>{{ 'nav.welcome'|trans }}, {{ app.user.email }}</span>
+        <div style="display:inline-flex;align-items:center;gap:var(--espacio-md);">
+            {% include 'components/_locale_switcher.html.twig' %}
+            <a href="{{ path('app_cerrar_sesion') }}">{{ 'nav.logout'|trans }}</a>
+        </div>
+    </nav>
+</header>
+<main>
+    <section class="inicio-contenedor">
+        <h1>{{ 'auth.home.title'|trans }}</h1>
+        <p>{{ 'auth.home.body'|trans }}</p>
+    </section>
+</main>
 {% endblock %}

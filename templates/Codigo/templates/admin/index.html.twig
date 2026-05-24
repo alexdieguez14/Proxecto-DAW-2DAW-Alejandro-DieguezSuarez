@@ -1,49 +1,231 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Panel</title>
+{% extends 'admin/layout.html.twig' %}
 
-    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
-</head>
+{% block title %}{{ 'admin.title'|trans }}{% endblock %}
 
-<body>
-
-<header>
-    <nav>
-        <ul>
-
-           
-           <li class="logo">
-                <a href="{{ path('app_admin') }}">
-                    <img src="{{ asset('images/logo-transparent.png') }}" alt="Logo empresa">
-                </a>
-            </li>
-
-            
-            <li><a href="{{ path('app_logistica') }}">Logística</a></li>
-            <li><a href="">Tienda</a></li>
-            <li><a href="{{ path('app_contabilidad') }}">Contabilidad</a></li>
-            <li><a href="">Datos maestros</a></li>
-
-            {% if app.user %}
-                <li class="user">👤 {{ app.user.email }}</li>
-                <li><a href="{{ path('app_logout') }}">Cerrar sesión</a></li>
-            {% endif %}
-
-        </ul>
-    </nav>
-</header>
-
+{% block page_content %}
 <main>
 
-    <section class="admin">
-        <h1>Panel de administración</h1>
-        <p>Selecciona una sección del menú superior.</p>
+    <section class="dashboard-wrap">
+
+        {# ── KPIs ── #}
+        <ul class="dashboard-grid-kpi">
+            <li class="dashboard-kpi dashboard-kpi--pedidos">
+                <span class="material-icons dashboard-kpi-icon" aria-hidden="true">shopping_bag</span>
+                <span class="dashboard-kpi-body">
+                    <span class="dashboard-kpi-label">{{ 'admin.kpi.orders_today'|trans }}</span>
+                    <strong class="dashboard-kpi-value">{{ hoy.cantidad }}</strong>
+                </span>
+            </li>
+            <li class="dashboard-kpi dashboard-kpi--preparacion">
+                <span class="material-icons dashboard-kpi-icon" aria-hidden="true">pending_actions</span>
+                <span class="dashboard-kpi-body">
+                    <span class="dashboard-kpi-label">{{ 'admin.kpi.in_preparation'|trans }}</span>
+                    <strong class="dashboard-kpi-value">{{ pedidosLogistica }}</strong>
+                </span>
+            </li>
+            <li class="dashboard-kpi dashboard-kpi-expenses">
+                <span class="material-icons dashboard-kpi-icon" aria-hidden="true">trending_down</span>
+                <span class="dashboard-kpi-body">
+                    <span class="dashboard-kpi-label">{{ 'admin.kpi.expense_month'|trans }}</span>
+                    <strong class="dashboard-kpi-value">{{ gastosMes|number_format(2, ',', '.') }} €</strong>
+                </span>
+            </li>
+        </ul>
+
+        {# ── Accesos rápidos ── #}
+        <nav aria-label="{{ 'admin.dashboard.shortcuts'|trans }}">
+            <p class="dashboard-section-title">{{ 'admin.dashboard.shortcuts'|trans }}</p>
+            <ul class="dashboard-accesos" style="list-style:none;padding:0;margin:0;">
+                <li>
+                    <a href="{{ path('admin_articulo_index') }}" class="dashboard-acceso">
+                        <span class="dashboard-acceso-icon dashboard-acceso-icon--catalogo">
+                            <span class="material-icons" aria-hidden="true">set_meal</span>
+                        </span>
+                        <span>
+                            <span class="dashboard-acceso-label">{{ 'admin.shortcut.catalog'|trans }}</span>
+                            <span class="dashboard-acceso-sub">{{ 'admin.shortcut.catalog.sub'|trans }}</span>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('app_inventario') }}" class="dashboard-acceso">
+                        <span class="dashboard-acceso-icon dashboard-acceso-icon--inventario">
+                            <span class="material-icons" aria-hidden="true">warehouse</span>
+                        </span>
+                        <span>
+                            <span class="dashboard-acceso-label">{{ 'admin.shortcut.inventory'|trans }}</span>
+                            <span class="dashboard-acceso-sub">{{ 'admin.shortcut.inventory.sub'|trans }}</span>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('contabilidad_empleado_index') }}" class="dashboard-acceso">
+                        <span class="dashboard-acceso-icon dashboard-acceso-icon--empleados">
+                            <span class="material-icons" aria-hidden="true">badge</span>
+                        </span>
+                        <span>
+                            <span class="dashboard-acceso-label">{{ 'admin.shortcut.employees'|trans }}</span>
+                            <span class="dashboard-acceso-sub">{{ 'admin.shortcut.employees.sub'|trans }}</span>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('admin_categoria_index') }}" class="dashboard-acceso">
+                        <span class="dashboard-acceso-icon dashboard-acceso-icon--categorias">
+                            <span class="material-icons" aria-hidden="true">category</span>
+                        </span>
+                        <span>
+                            <span class="dashboard-acceso-label">{{ 'admin.shortcut.categories'|trans }}</span>
+                            <span class="dashboard-acceso-sub">{{ 'admin.shortcut.categories.sub'|trans }}</span>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        {# ── Últimos pedidos ── #}
+        <article class="dashboard-card">
+            <header class="dashboard-card-header">
+                <h2 class="dashboard-card-title">
+                    <span class="material-icons" aria-hidden="true">receipt_long</span>
+                    {{ 'admin.dashboard.recent_orders'|trans }}
+                </h2>
+                <a href="{{ path('app_logistica') }}" class="dashboard-card-link">
+                    {{ 'admin.orders.view_all'|trans }} <span class="material-icons" aria-hidden="true">arrow_forward</span>
+                </a>
+            </header>
+            {% if ultimosPedidos is empty %}
+                <p class="dashboard-vacio">{{ 'admin.orders.empty'|trans }}</p>
+            {% else %}
+                <table class="dashboard-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">{{ 'admin.orders.col.customer'|trans }}</th>
+                            <th scope="col">{{ 'admin.orders.col.total'|trans }}</th>
+                            <th scope="col">{{ 'admin.orders.col.payment_method'|trans }}</th>
+                            <th scope="col">{{ 'admin.orders.col.status'|trans }}</th>
+                            <th scope="col">{{ 'admin.orders.col.date'|trans }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for p in ultimosPedidos %}
+                            {% set badgeMap = {
+                                'PREPARACION': 'dashboard-badge--preparacion',
+                                'LISTO_ENVIO': 'dashboard-badge--listo',
+                                'ENVIADO':     'dashboard-badge--enviado',
+                                'PAGADO':      'dashboard-badge--pagado',
+                            } %}
+                            {% set labelMap = {
+                                'PREPARACION': 'status.short.preparacion'|trans,
+                                'LISTO_ENVIO': 'status.short.listo'|trans,
+                                'ENVIADO':     'status.short.enviado'|trans,
+                                'PAGADO':      'status.short.pagado'|trans,
+                            } %}
+                            {% set metodoMap = {
+                                'TARJETA':          'payment.short.tarjeta'|trans,
+                                'TRANSFERENCIA':    'payment.short.transferencia'|trans,
+                                'CONTRARREEMBOLSO': 'payment.short.contrarreembolso'|trans,
+                            } %}
+                            <tr>
+                                <td><strong>#{{ p.id }}</strong></td>
+                                <td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">
+                                    {{ p.clienteEmail }}
+                                </td>
+                                <td><strong>{{ p.total|number_format(2, ',', '.') }} €</strong></td>
+                                <td>{{ metodoMap[p.metodoPago] ?? p.metodoPago ?? '—' }}</td>
+                                <td>
+                                    <span class="dashboard-badge {{ badgeMap[p.estado] ?? 'dashboard-badge--preparacion' }}">
+                                        {{ labelMap[p.estado] ?? p.estado }}
+                                    </span>
+                                </td>
+                                <td style="white-space:nowrap;color:var(--color-texto-suave);">
+                                    {{ p.creadoEn|date('d/m/Y H:i') }}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+        </article>
+
+        {# ── Últimos movimientos ── #}
+        <article class="dashboard-card">
+            <header class="dashboard-card-header">
+                <h2 class="dashboard-card-title">
+                    <span class="material-icons" aria-hidden="true">account_balance_wallet</span>
+                    {{ 'admin.dashboard.recent_movements'|trans }}
+                </h2>
+                <a href="{{ path('app_contabilidad') }}" class="dashboard-card-link">
+                    {{ 'admin.orders.view_all'|trans }} <span class="material-icons" aria-hidden="true">arrow_forward</span>
+                </a>
+            </header>
+            {% if ultimosMovimientos is empty %}
+                <p class="dashboard-vacio">{{ 'admin.movements.empty'|trans }}</p>
+            {% else %}
+                <table class="dashboard-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">{{ 'common.date'|trans }}</th>
+                            <th scope="col">{{ 'contabilidad.movement.type'|trans }}</th>
+                            <th scope="col">{{ 'contabilidad.movement.concept'|trans }}</th>
+                            <th scope="col">{{ 'contabilidad.movement.ref'|trans }}</th>
+                            <th scope="col">{{ 'contabilidad.movement.amount'|trans }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for m in ultimosMovimientos %}
+                            {% set conceptoMap = {
+                                'PAGO_FACTURA': 'concept.invoice_payment'|trans,
+                                'NOMINA': 'concept.payroll'|trans,
+                                'PAGO_PROVEEDOR': 'concept.supplier_payment'|trans,
+                                'SUMINISTROS': 'concept.utilities'|trans,
+                                'OTROS': m.tipo == 'INGRESO' ? 'concept.other_income'|trans : 'concept.other_expense'|trans,
+                            } %}
+                            <tr>
+                                <td style="white-space:nowrap;color:var(--color-texto-suave);">
+                                    {{ m.creadoEn|date('d/m/Y H:i') }}
+                                </td>
+                                <td>
+                                    <span class="dashboard-badge {{ m.tipo == 'INGRESO' ? 'dashboard-badge--pagado' : 'dashboard-badge--sin-stock' }}">
+                                        {{ m.tipo == 'INGRESO' ? 'contabilidad.movement.income'|trans : 'contabilidad.movement.expense'|trans }}
+                                    </span>
+                                </td>
+                                <td>{{ conceptoMap[m.concepto] ?? m.concepto }}</td>
+                                <td>{{ m.numeroFactura ?: m.numeroOperacionBancaria ?: '—' }}</td>
+                                <td><strong>{{ m.tipo == 'INGRESO' ? '+' : '−' }}{{ m.importe|number_format(2, ',', '.') }} €</strong></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+        </article>
+
+        {# ── Alerta pedidos vencidos ── #}
+        {% if pedidosVencidos > 0 %}
+            <aside role="alert" style="
+                background:var(--color-error-fondo);
+                border-left:4px solid var(--color-peligro);
+                border-radius:var(--radio-lg);
+                padding:var(--espacio-md) var(--espacio-lg);
+                display:flex;
+                align-items:center;
+                gap:var(--espacio-md);
+                color:var(--color-peligro-oscuro);
+                font-weight:700;
+                font-size:var(--texto-sm);
+            ">
+                <span class="material-icons" aria-hidden="true" style="font-size:1.6rem;flex-shrink:0;">error_outline</span>
+                <span>
+                    {{ 'admin.orders.alert_overdue'|trans({ '%count%': pedidosVencidos }) }}
+                    <a href="{{ path('app_contabilidad') }}" style="color:var(--color-peligro-oscuro);font-weight:800;text-decoration:underline;margin-left:.4rem;">
+                        {{ 'admin.orders.alert_overdue.cta'|trans }}
+                    </a>
+                </span>
+            </aside>
+        {% endif %}
+
     </section>
 
 </main>
-
-</body>
-</html>
+{% endblock %}

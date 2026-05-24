@@ -12,4 +12,16 @@ class ProveedorRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Proveedor::class);
     }
+
+    public function findFiltrados(?string $busqueda): array
+    {
+        $qb = $this->createQueryBuilder('p')->orderBy('p.nombre', 'ASC');
+
+        if ($busqueda !== null && $busqueda !== '') {
+            $qb->andWhere('p.nombre LIKE :q OR p.contacto LIKE :q OR p.email LIKE :q')
+               ->setParameter('q', '%' . $busqueda . '%');
+        }
+
+        return $qb->getQuery()->getResult();
+    }
 }

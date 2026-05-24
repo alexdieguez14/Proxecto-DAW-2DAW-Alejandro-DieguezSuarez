@@ -1,50 +1,212 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contabilidad</title>
+{% extends 'contabilidad/crud_base.html.twig' %}
 
-    <link rel="stylesheet" href="{{ asset('css/contabilidad.css') }}">
-</head>
+{% block title %}{{ 'contabilidad.dashboard.title'|trans }} — {{ 'contabilidad.title'|trans }}{% endblock %}
 
-<body>
+{% block breadcrumbs %}
+<ul>
+    <li><a href="{{ path('app_contabilidad') }}">{{ 'contabilidad.dashboard.breadcrumb'|trans }}</a></li>
+    <li>{{ 'contabilidad.dashboard.title'|trans }}</li>
+</ul>
+{% endblock %}
 
-<header>
-    <nav>
-        <ul>
+{% block crud_content %}
+<main class="fondo-pagina">
+    <div class="contenedor-principal">
 
-     
-            <li class="logo">
-                <a href="{{ path('app_admin') }}">
-                    <img src="{{ asset('images/logo-transparent.png') }}" alt="Logo empresa">
-                </a>
-            </li>
+        {# ── Tarjetas resumen KPI ── #}
+        <section class="cuadricula-indicadores">
+            <div class="tarjeta-indicador tarjeta-indicador--ingreso">
+                <span class="material-icons icono-indicador" aria-hidden="true">trending_up</span>
+                <div class="cuerpo-indicador">
+                    <span class="etiqueta-indicador">{{ 'contabilidad.kpi.income'|trans }}</span>
+                    <span class="valor-indicador">{{ ingresos|number_format(2, ',', '.') }} €</span>
+                    <span class="subtexto-indicador">{{ 'status.pagado'|trans }}</span>
+                </div>
+            </div>
+            <div class="tarjeta-indicador tarjeta-indicador--gasto">
+                <span class="material-icons icono-indicador" aria-hidden="true">trending_down</span>
+                <div class="cuerpo-indicador">
+                    <span class="etiqueta-indicador">{{ 'contabilidad.kpi.expense'|trans }}</span>
+                    <span class="valor-indicador">{{ gastos|number_format(2, ',', '.') }} €</span>
+                    <span class="subtexto-indicador">{{ 'contabilidad.movement.expense'|trans }}</span>
+                </div>
+            </div>
+            <div class="tarjeta-indicador tarjeta-indicador--pendiente">
+                <span class="material-icons icono-indicador" aria-hidden="true">schedule</span>
+                <div class="cuerpo-indicador">
+                    <span class="etiqueta-indicador">{{ 'contabilidad.kpi.pending'|trans }}</span>
+                    <span class="valor-indicador">{{ pendientes|number_format(2, ',', '.') }} €</span>
+                    <span class="subtexto-indicador">{{ 'status.pendiente_pago'|trans }}</span>
+                </div>
+            </div>
+        </section>
 
-            
-            <li><a href="">Contabilidad</a></li>
-            <li><a href="">Empleados</a></li>
-            <li><a href="">Proveedores</a></li>
+        {# ── Tarjeta del libro contable ── #}
+        <section class="tarjeta-maestra">
+            <header class="cabecera-tarjeta">
+                <h1 class="titulo-tarjeta-financiera">
+                    <span class="material-icons" aria-hidden="true">receipt_long</span>
+                    {{ 'contabilidad.ledger.title'|trans }}
+                </h1>
+            </header>
 
-            {% if app.user %}
-                <li class="user">👤 {{ app.user.email }}</li>
-                <li><a href="{{ path('app_logout') }}">Cerrar sesión</a></li>
-            {% else %}
-                <li><a href="{{ path('app_login') }}">Iniciar sesión</a></li>
-            {% endif %}
+            <div class="cuerpo-libro-contable">
 
-        </ul>
-    </nav>
-</header>
+                {# ── Panel izquierdo: formulario de registro manual ── #}
+                <div class="panel-formulario-financiero">
+                    <p class="etiqueta-formulario-financiero">{{ 'contabilidad.movements.title'|trans }}</p>
+                    <form class="formulario-financiero"
+                          method="post"
+                          action="{{ path('contabilidad_movimiento_nuevo') }}">
+                        <input type="hidden" name="_token"
+                               value="{{ csrf_token('movimiento_nuevo') }}">
 
-<main>
+                        <div class="grupo-formulario-financiero">
+                            <label for="financiero-tipo">{{ 'contabilidad.movement.type'|trans }}</label>
+                            <select id="financiero-tipo" name="tipo" required>
+                                <option value="EGRESO" selected>{{ 'contabilidad.movement.expense'|trans }}</option>
+                                <option value="INGRESO">{{ 'contabilidad.movement.income'|trans }}</option>
+                            </select>
+                        </div>
 
-    <div class="contabilidad">
-        <h1>Panel de Contabilidad</h1>
-        <p>Gestión financiera, empleados y proveedores</p>
+                        <div class="grupo-formulario-financiero">
+                            <label for="financiero-concepto">{{ 'contabilidad.movement.concept'|trans }}</label>
+                            <select id="financiero-concepto" name="concepto" required>
+                                <option value="NOMINA">{{ 'concept.payroll'|trans }}</option>
+                                <option value="PAGO_PROVEEDOR">{{ 'concept.supplier_payment'|trans }}</option>
+                                <option value="SUMINISTROS">{{ 'concept.utilities'|trans }}</option>
+                                <option value="OTROS">{{ 'concept.other_expense'|trans }}</option>
+                            </select>
+                        </div>
+
+                        <div class="grupo-formulario-financiero">
+                            <label for="importe-financiero">{{ 'contabilidad.movement.amount'|trans }} (€) <span class="requerido">*</span></label>
+                            <input type="number" id="importe-financiero" name="importe"
+                                   min="0.01" step="0.01" placeholder="0.00" required>
+                        </div>
+
+                        <div class="grupo-formulario-financiero">
+                            <label for="financiero-descripcion">{{ 'form.label.description'|trans }}</label>
+                            <input type="text" id="financiero-descripcion" name="descripcion"
+                                   maxlength="255" placeholder="{{ 'common.optional'|trans }}">
+                        </div>
+
+                        <div class="grupo-formulario-financiero">
+                            <label for="financiero-factura">{{ 'contabilidad.movement.ref'|trans }}</label>
+                            <input type="text" id="financiero-factura" name="numero_factura"
+                                   maxlength="100" placeholder="FAC-2026-001">
+                        </div>
+
+                        <div class="grupo-formulario-financiero">
+                            <label for="financiero-banco">{{ 'contabilidad.payment.bank'|trans }}</label>
+                            <input type="text" id="financiero-banco" name="numero_operacion_bancaria"
+                                   maxlength="100" placeholder="OP-20260516-001">
+                        </div>
+
+                        <div class="acciones-formulario-financiero">
+                            <button type="submit" class="boton-nuevo">
+                                <span class="material-icons" aria-hidden="true">add_circle</span>
+                                {{ 'common.save'|trans }}
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                {# ── Panel derecho: tabla del libro ── #}
+                <div class="panel-tabla-libro">
+                    {% if movimientos is empty %}
+                        <p class="tarjeta-vacia">{{ 'admin.crud.no_results'|trans }}</p>
+                    {% else %}
+                        <div class="envoltorio-tabla">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>{{ 'common.date'|trans }}</th>
+                                        <th>{{ 'contabilidad.movement.type'|trans }}</th>
+                                        <th>{{ 'contabilidad.movement.concept'|trans }}</th>
+                                        <th>{{ 'contabilidad.movement.ref'|trans }}</th>
+                                        <th class="texto-centrado">{{ 'contabilidad.movement.amount'|trans }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for m in movimientos %}
+                                    <tr>
+                                        <td>{{ m.creadoEn|date('d/m/Y H:i') }}</td>
+                                        <td>
+                                            {% if m.tipo == 'INGRESO' %}
+                                                <span class="tipo-movimiento tipo-movimiento--ingreso">
+                                                    <span class="material-icons" aria-hidden="true">arrow_upward</span>
+                                                    {{ 'contabilidad.movement.income'|trans }}
+                                                </span>
+                                            {% else %}
+                                                <span class="tipo-movimiento tipo-movimiento--egreso">
+                                                    <span class="material-icons" aria-hidden="true">arrow_downward</span>
+                                                    {{ 'contabilidad.movement.expense'|trans }}
+                                                </span>
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            {% if m.concepto == 'PAGO_FACTURA' %}{{ 'concept.invoice_payment'|trans }}
+                                            {% elseif m.concepto == 'NOMINA' %}{{ 'concept.payroll'|trans }}
+                                            {% elseif m.concepto == 'PAGO_PROVEEDOR' %}{{ 'concept.supplier_payment'|trans }}
+                                            {% elseif m.concepto == 'SUMINISTROS' %}{{ 'concept.utilities'|trans }}
+                                            {% else %}{{ 'concept.other_expense'|trans }}{% endif %}
+                                        </td>
+                                        <td class="texto-suave">
+                                            {% if m.numeroFactura %}
+                                                <span class="referencia-financiera">
+                                                    <span class="material-icons" aria-hidden="true">receipt</span>
+                                                    {{ m.numeroFactura }}
+                                                </span>
+                                            {% else %}—{% endif %}
+                                        </td>
+                                        <td class="texto-centrado">
+                                            <span class="importe-financiero importe-financiero--{{ m.tipo|lower }}">
+                                                {{ m.tipo == 'INGRESO' ? '+' : '−' }}{{ m.importe|number_format(2, ',', '.') }} €
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        <footer class="pie-tarjeta pie-tarjeta--fin">
+                            <a href="{{ path('contabilidad_movimientos') }}" class="boton-ver-mas">
+                                <span class="material-icons" aria-hidden="true">arrow_forward</span>
+                                {{ 'admin.btn_view_more'|trans }}
+                            </a>
+                        </footer>
+                    {% endif %}
+                </div>
+
+            </div>
+
+        </section>
+
     </div>
-
 </main>
 
-</body>
-</html>
+<script>
+(function () {
+    var tipoSel     = document.getElementById('financiero-tipo');
+    var conceptoSel = document.getElementById('financiero-concepto');
+
+    var egOpts = [
+        { v: 'NOMINA',         l: '{{ 'concept.payroll'|trans|escape('js') }}' },
+        { v: 'PAGO_PROVEEDOR', l: '{{ 'concept.supplier_payment'|trans|escape('js') }}' },
+        { v: 'SUMINISTROS',    l: '{{ 'concept.utilities'|trans|escape('js') }}' },
+        { v: 'OTROS',          l: '{{ 'concept.other_expense'|trans|escape('js') }}' }
+    ];
+    var inOpts = [{ v: 'OTROS', l: '{{ 'concept.other_income'|trans|escape('js') }}' }];
+
+    function refreshConceptos() {
+        var opts = tipoSel.value === 'INGRESO' ? inOpts : egOpts;
+        conceptoSel.innerHTML = opts
+            .map(function (o) { return '<option value="' + o.v + '">' + o.l + '</option>'; })
+            .join('');
+    }
+
+    tipoSel.addEventListener('change', refreshConceptos);
+}());
+</script>
+{% endblock %}

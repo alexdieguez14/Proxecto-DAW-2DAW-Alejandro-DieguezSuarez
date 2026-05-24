@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Proveedor;
+use App\Form\ProveedorFilterType;
 use App\Form\ProveedorType;
 use App\Repository\ProveedorRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -11,18 +12,28 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-#[Route('/admin/proveedores')]
 class ProveedorController extends AbstractController
 {
-    #[Route('', name: 'admin_proveedor_index')]
-    public function index(ProveedorRepository $repo): Response
+
+    /** Listado de proveedores con filtros */
+    #[Route('/admin/proveedores',       name: 'admin_proveedor_index')]
+    #[Route('/contabilidad/proveedores', name: 'contabilidad_proveedor_index')]
+    public function index(Request $request, ProveedorRepository $repo): Response
     {
+        $form = $this->createForm(ProveedorFilterType::class);
+        $form->handleRequest($request);
+
+        $d = ($form->isSubmitted() && $form->isValid()) ? $form->getData() : [];
+
         return $this->render('admin/proveedor/index.html.twig', [
-            'proveedores' => $repo->findBy([], ['nombre' => 'ASC']),
+            'proveedores' => $repo->findFiltrados($d['busqueda'] ?? null),
+            'filtroForm'  => $form->createView(),
         ]);
     }
 
-    #[Route('/nuevo', name: 'admin_proveedor_new')]
+    /** Crear nuevo proveedor */
+    #[Route('/admin/proveedores/nuevo',       name: 'admin_proveedor_nuevo')]
+    #[Route('/contabilidad/proveedores/nuevo', name: 'contabilidad_proveedor_nuevo')]
     public function new(Request $request, EntityManagerInterface $em): Response
     {
         $proveedor = new Proveedor();
@@ -32,8 +43,9 @@ class ProveedorController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $em->persist($proveedor);
             $em->flush();
-            $this->addFlash('success', 'Proveedor creado correctamente.');
-            return $this->redirectToRoute('admin_proveedor_index');
+            $this->addFlash('success', 'flash.proveedor.created');
+
+            return $this->redirectToRoute($this->indexRoute($request));
         }
 
         return $this->render('admin/proveedor/form.html.twig', [
@@ -42,7 +54,9 @@ class ProveedorController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/editar', name: 'admin_proveedor_edit')]
+    /** Editar proveedor existente */
+    #[Route('/admin/proveedores/{id}/editar',       name: 'admin_proveedor_editar')]
+    #[Route('/contabilidad/proveedores/{id}/editar', name: 'contabilidad_proveedor_editar')]
     public function edit(Proveedor $proveedor, Request $request, EntityManagerInterface $em): Response
     {
         $form = $this->createForm(ProveedorType::class, $proveedor);
@@ -50,8 +64,9 @@ class ProveedorController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em->flush();
-            $this->addFlash('success', 'Proveedor actualizado.');
-            return $this->redirectToRoute('admin_proveedor_index');
+            $this->addFlash('success', 'flash.proveedor.updated');
+
+            return $this->redirectToRoute($this->indexRoute($request));
         }
 
         return $this->render('admin/proveedor/form.html.twig', [
@@ -60,14 +75,24 @@ class ProveedorController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/eliminar', name: 'admin_proveedor_delete', methods: ['POST'])]
+    #[Route('/admin/proveedores/{id}/eliminar',       name: 'admin_proveedor_eliminar',       methods: ['POST'])]
+    #[Route('/contabilidad/proveedores/{id}/eliminar', name: 'contabilidad_proveedor_eliminar', methods: ['POST'])]
     public function delete(Proveedor $proveedor, Request $request, EntityManagerInterface $em): Response
     {
         if ($this->isCsrfTokenValid('delete_proveedor_' . $proveedor->getId(), $request->request->get('_token'))) {
             $em->remove($proveedor);
             $em->flush();
-            $this->addFlash('success', 'Proveedor eliminado.');
+            $this->addFlash('success', 'flash.proveedor.deleted');
         }
-        return $this->redirectToRoute('admin_proveedor_index');
+
+        return $this->redirectToRoute($this->indexRoute($request));
+    }
+
+    /// Devuelve la ruta de listado correspondiente según el contexto (admin o contabilidad)
+    private function indexRoute(Request $request): string
+    {
+        return str_contains((string) $request->attributes->get('_route'), 'contabilidad')
+            ? 'contabilidad_proveedor_index'
+            : 'admin_proveedor_index';
     }
 }

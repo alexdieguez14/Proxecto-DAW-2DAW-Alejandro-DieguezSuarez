@@ -8,14 +8,16 @@ use App\Entity\Proveedor;
 use App\Entity\UbicacionAlmacen;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
-use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\GreaterThanOrEqual;
+use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Positive;
@@ -26,68 +28,105 @@ class ArticuloType extends AbstractType
     {
         $builder
             ->add('titulo', TextType::class, [
-                'label' => 'Título',
+                'label' => 'form.label.title_es',
                 'attr'  => ['maxlength' => 200],
                 'constraints' => [
-                    new NotBlank(['message' => 'El título es obligatorio.']),
+                    new NotBlank(['message' => 'validation.title.required']),
                     new Length(['max' => 200]),
                 ],
             ])
+            ->add('tituloEn', TextType::class, [
+                'label'    => 'form.label.title_en',
+                'required' => false,
+                'attr'     => ['maxlength' => 200],
+                'constraints' => [new Length(['max' => 200])],
+            ])
+            ->add('tituloGl', TextType::class, [
+                'label'    => 'form.label.title_gl',
+                'required' => false,
+                'attr'     => ['maxlength' => 200],
+                'constraints' => [new Length(['max' => 200])],
+            ])
             ->add('descripcion', TextareaType::class, [
-                'label'    => 'Descripción',
+                'label'    => 'form.label.description_es',
                 'required' => false,
                 'attr'     => ['rows' => 3],
             ])
-            ->add('precio', MoneyType::class, [
-                'label'    => 'Precio',
-                'currency' => 'EUR',
+            ->add('descripcionEn', TextareaType::class, [
+                'label'    => 'form.label.description_en',
+                'required' => false,
+                'attr'     => ['rows' => 3],
+            ])
+            ->add('descripcionGl', TextareaType::class, [
+                'label'    => 'form.label.description_gl',
+                'required' => false,
+                'attr'     => ['rows' => 3],
+            ])
+            ->add('imagenFile', FileType::class, [
+                'label' => 'form.label.image',
+                'mapped' => false,
+                'required' => false,
+                'help' => 'form.image.help',
                 'constraints' => [
-                    new NotBlank(['message' => 'El precio es obligatorio.']),
-                    new Positive(['message' => 'El precio debe ser positivo.']),
+                    new File([
+                        'maxSize' => '4M',
+                        'mimeTypes' => ['image/jpeg', 'image/png', 'image/webp'],
+                        'mimeTypesMessage' => 'validation.image.mime',
+                    ]),
+                ],
+            ])
+            ->add('precioSinIva', NumberType::class, [
+                'label' => 'form.label.price',
+                'scale' => 2,
+                'attr' => ['step' => '0.01'],
+                'constraints' => [
+                    new NotBlank(['message' => 'validation.price.required']),
+                    new Positive(['message' => 'validation.price.positive']),
+                ],
+            ])
+            ->add('iva', ChoiceType::class, [
+                'label' => 'form.label.iva',
+                'choices' => [
+                    '0%' => '0.00',
+                    '4%' => '4.00',
+                    '10%' => '10.00',
+                    '21%' => '21.00',
                 ],
             ])
             ->add('peso', NumberType::class, [
-                'label' => 'Peso (kg)',
+                'label' => 'form.label.weight',
                 'scale' => 3,
                 'attr'  => ['step' => '0.001'],
                 'constraints' => [
-                    new NotBlank(['message' => 'El peso es obligatorio.']),
-                    new Positive(['message' => 'El peso debe ser positivo.']),
+                    new NotBlank(['message' => 'validation.weight.required']),
+                    new Positive(['message' => 'validation.weight.positive']),
                 ],
             ])
             ->add('stock', IntegerType::class, [
-                'label' => 'Stock',
+                'label' => 'form.label.stock',
                 'constraints' => [
                     new NotBlank(),
-                    new GreaterThanOrEqual(['value' => 0, 'message' => 'El stock no puede ser negativo.']),
-                ],
-            ])
-            ->add('cantidad', IntegerType::class, [
-                'label' => 'Cantidad',
-                'constraints' => [
-                    new NotBlank(),
-                    new GreaterThanOrEqual(['value' => 0, 'message' => 'La cantidad no puede ser negativa.']),
+                    new GreaterThanOrEqual(['value' => 0, 'message' => 'validation.stock.nonnegative']),
                 ],
             ])
             ->add('categoria', EntityType::class, [
                 'class'        => Categoria::class,
                 'choice_label' => 'nombre',
-                'label'        => 'Categoría',
-                'placeholder'  => '-- Sin categoría --',
+                'label'        => 'form.label.category',
+                'placeholder'  => 'form.category.placeholder',
                 'required'     => false,
             ])
             ->add('proveedor', EntityType::class, [
                 'class'        => Proveedor::class,
                 'choice_label' => 'nombre',
-                'label'        => 'Proveedor',
-                'placeholder'  => '-- Sin proveedor --',
+                'label'        => 'admin.proveedores.breadcrumb',
+                'placeholder'  => 'form.supplier.placeholder',
                 'required'     => false,
             ])
             ->add('ubicacion', EntityType::class, [
                 'class'        => UbicacionAlmacen::class,
-                'choice_label' => '__toString',
-                'label'        => 'Ubicación en almacén',
-                'placeholder'  => '-- Sin ubicación --',
+                'label'        => 'logistica.inventario.location',
+                'placeholder'  => 'form.location.placeholder',
                 'required'     => false,
             ]);
     }

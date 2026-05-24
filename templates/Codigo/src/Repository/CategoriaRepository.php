@@ -12,4 +12,15 @@ class CategoriaRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Categoria::class);
     }
+
+    public function findFiltrados(?string $busqueda): array
+    {
+        $qb = $this->createQueryBuilder('c')->orderBy('c.nombre', 'ASC');
+
+        if ($busqueda !== null && $busqueda !== '') {
+            $qb->andWhere('c.nombre LIKE :q')->setParameter('q', '%' . $busqueda . '%');
+        }
+
+        return $qb->getQuery()->getResult();
+    }
 }

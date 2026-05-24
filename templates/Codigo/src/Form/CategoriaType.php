@@ -16,10 +16,26 @@ class CategoriaType extends AbstractType
     {
         $builder
             ->add('nombre', TextType::class, [
-                'label' => 'Nombre',
+                'label' => 'form.label.name_es',
                 'attr'  => ['maxlength' => 100],
                 'constraints' => [
-                    new NotBlank(['message' => 'El nombre es obligatorio.']),
+                    new NotBlank(['message' => 'validation.name.required']),
+                    new Length(['max' => 100]),
+                ],
+            ])
+            ->add('nombreEn', TextType::class, [
+                'label'    => 'form.label.name_en',
+                'required' => false,
+                'attr'     => ['maxlength' => 100],
+                'constraints' => [
+                    new Length(['max' => 100]),
+                ],
+            ])
+            ->add('nombreGl', TextType::class, [
+                'label'    => 'form.label.name_gl',
+                'required' => false,
+                'attr'     => ['maxlength' => 100],
+                'constraints' => [
                     new Length(['max' => 100]),
                 ],
             ]);

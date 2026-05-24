@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Categoria;
+use App\Form\CategoriaFilterType;
 use App\Form\CategoriaType;
 use App\Repository\CategoriaRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -14,15 +15,23 @@ use Symfony\Component\Routing\Attribute\Route;
 #[Route('/admin/categorias')]
 class CategoriaController extends AbstractController
 {
+    /** Listado de categorías con filtros */
     #[Route('', name: 'admin_categoria_index')]
-    public function index(CategoriaRepository $repo): Response
+    public function index(Request $request, CategoriaRepository $repo): Response
     {
+        $form = $this->createForm(CategoriaFilterType::class);
+        $form->handleRequest($request);
+
+        $d = ($form->isSubmitted() && $form->isValid()) ? $form->getData() : [];
+
         return $this->render('admin/categoria/index.html.twig', [
-            'categorias' => $repo->findBy([], ['nombre' => 'ASC']),
+            'categorias' => $repo->findFiltrados($d['busqueda'] ?? null),
+            'filtroForm' => $form->createView(),
         ]);
     }
 
-    #[Route('/nueva', name: 'admin_categoria_new')]
+    /** Crear nueva categoría */
+    #[Route('/nueva', name: 'admin_categoria_nueva')]
     public function new(Request $request, EntityManagerInterface $em): Response
     {
         $categoria = new Categoria();
@@ -32,7 +41,7 @@ class CategoriaController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $em->persist($categoria);
             $em->flush();
-            $this->addFlash('success', 'Categoría creada correctamente.');
+            $this->addFlash('success', 'flash.categoria.created');
             return $this->redirectToRoute('admin_categoria_index');
         }
 
@@ -42,7 +51,8 @@ class CategoriaController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/editar', name: 'admin_categoria_edit')]
+    /** Editar categoría existente */
+    #[Route('/{id}/editar', name: 'admin_categoria_editar')]
     public function edit(Categoria $categoria, Request $request, EntityManagerInterface $em): Response
     {
         $form = $this->createForm(CategoriaType::class, $categoria);
@@ -50,7 +60,7 @@ class CategoriaController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em->flush();
-            $this->addFlash('success', 'Categoría actualizada.');
+            $this->addFlash('success', 'flash.categoria.updated');
             return $this->redirectToRoute('admin_categoria_index');
         }
 
@@ -59,14 +69,15 @@ class CategoriaController extends AbstractController
             'titulo' => 'Editar categoría',
         ]);
     }
-
-    #[Route('/{id}/eliminar', name: 'admin_categoria_delete', methods: ['POST'])]
+    
+    /** Eliminar categoría */
+    #[Route('/{id}/eliminar', name: 'admin_categoria_eliminar', methods: ['POST'])]
     public function delete(Categoria $categoria, Request $request, EntityManagerInterface $em): Response
     {
         if ($this->isCsrfTokenValid('delete_categoria_' . $categoria->getId(), $request->request->get('_token'))) {
             $em->remove($categoria);
             $em->flush();
-            $this->addFlash('success', 'Categoría eliminada.');
+            $this->addFlash('success', 'flash.categoria.deleted');
         }
         return $this->redirectToRoute('admin_categoria_index');
     }

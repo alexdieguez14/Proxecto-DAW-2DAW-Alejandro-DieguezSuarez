@@ -1,0 +1,230 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}{{ 'admin.master_data.title'|trans }} — {{ 'admin.title'|trans }}{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/admin_articulos.css') }}">
+{% endblock %}
+
+{% block breadcrumbs %}
+    <ul>
+        <li><a href="{{ path('app_admin') }}">{{ 'admin.master_data.home'|trans }}</a></li>
+        <li>{{ 'admin.master_data.breadcrumb'|trans }}</li>
+    </ul>
+{% endblock %}
+
+{% block page_content %}
+<main class="fondo-pagina">
+    <div class="contenedor-principal">
+
+        {# ── Empleados ── #}
+        <article class="tarjeta-maestra">
+            <header class="cabecera-tarjeta">
+                <h1>
+                    <span class="material-icons" style="vertical-align:middle;margin-right:.3rem" aria-hidden="true">badge</span>
+                    {{ 'admin.employees.title'|trans }}
+                </h1>
+                <a class="boton-nuevo" href="{{ path('admin_empleado_nuevo') }}">
+                    <span class="material-icons" aria-hidden="true">person_add</span>
+                    {{ 'admin.employees.new'|trans }}
+                </a>
+            </header>
+            <p style="padding: var(--espacio-md) var(--espacio-lg); color: var(--color-texto-suave); font-size: var(--texto-sm);">
+                {{ 'admin.employees.help'|trans }}
+            </p>
+        </article>
+
+        {# ── Inventario ── #}
+        <article class="tarjeta-maestra">
+            <header class="cabecera-tarjeta">
+                <h1>{{ 'admin.inventory.title'|trans }}</h1>
+                <a class="boton-nuevo" href="{{ path('app_inventario') }}">
+                    <span class="material-icons" aria-hidden="true">open_in_new</span>
+                    {{ 'admin.inventory.view'|trans }}
+                </a>
+            </header>
+            <p style="padding: var(--espacio-md) var(--espacio-lg); color: var(--color-texto-suave); font-size: var(--texto-sm);">
+                {{ 'admin.inventory.help'|trans }}
+            </p>
+        </article>
+
+        {# ── Artículos ── #}
+        <article class="tarjeta-maestra">
+            <header class="cabecera-tarjeta">
+                <h1>{{ 'admin.products.title'|trans }}</h1>
+                <a class="boton-nuevo" href="{{ path('admin_articulo_nuevo') }}">
+                    <span class="material-icons" aria-hidden="true">add</span>
+                    {{ 'admin.btn_create'|trans }}
+                </a>
+            </header>
+
+            {% if articulos is empty %}
+                <p class="tarjeta-vacia">{{ 'admin.products.empty'|trans }}</p>
+            {% else %}
+                <div class="envoltorio-tabla">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>{{ 'common.product'|trans }}</th>
+                                <th>{{ 'admin.products.col.category'|trans }}</th>
+                                <th>{{ 'admin.products.col.weight'|trans }}</th>
+                                <th>{{ 'common.price'|trans }}</th>
+                                <th>{{ 'admin.products.col.stock'|trans }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for articulo in articulos|slice(0, 6) %}
+                            <tr>
+                                <td class="texto-primario-negrita">{{ articulo.titulo }}</td>
+                                <td>{{ articulo.categoria ? articulo.categoria.nombre : 'admin.products.no_category'|trans }}</td>
+                                <td>{{ articulo.peso }} kg</td>
+                                <td>{{ articulo.precio|number_format(2, ',', '.') }} €</td>
+                                <td>{{ articulo.stock }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% endif %}
+
+            <footer class="pie-tarjeta pie-tarjeta--fin">
+                <a class="boton-ver-mas" href="{{ path('admin_articulo_index') }}">
+                    <span class="material-icons" aria-hidden="true">arrow_forward</span>
+                    {{ 'admin.btn_view_more'|trans }}
+                </a>
+            </footer>
+        </article>
+
+        {# ── Proveedores ── #}
+        <article class="tarjeta-maestra">
+            <header class="cabecera-tarjeta">
+                <h1>{{ 'admin.suppliers.title'|trans }}</h1>
+                <a class="boton-nuevo" href="{{ path('admin_proveedor_nuevo') }}">
+                    <span class="material-icons" aria-hidden="true">add</span>
+                    {{ 'admin.btn_create'|trans }}
+                </a>
+            </header>
+
+            {% if proveedores is empty %}
+                <p class="tarjeta-vacia">{{ 'admin.suppliers.empty'|trans }}</p>
+            {% else %}
+                <div class="envoltorio-tabla">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>{{ 'common.name'|trans }}</th>
+                                <th>{{ 'common.email'|trans }}</th>
+                                <th>{{ 'common.phone'|trans }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for proveedor in proveedores|slice(0, 6) %}
+                            <tr>
+                                <td class="texto-primario-negrita">{{ proveedor.nombre }}</td>
+                                <td>{{ proveedor.email ?: '—' }}</td>
+                                <td>{{ proveedor.telefono ?: '—' }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% endif %}
+
+            <footer class="pie-tarjeta pie-tarjeta--fin">
+                <a class="boton-ver-mas" href="{{ path('admin_proveedor_index') }}">
+                    <span class="material-icons" aria-hidden="true">arrow_forward</span>
+                    {{ 'admin.btn_view_more'|trans }}
+                </a>
+            </footer>
+        </article>
+
+        {# ── Categorías ── #}
+        <article class="tarjeta-maestra">
+            <header class="cabecera-tarjeta">
+                <h1>{{ 'admin.categories.title'|trans }}</h1>
+                <a class="boton-nuevo" href="{{ path('admin_categoria_nueva') }}">
+                    <span class="material-icons" aria-hidden="true">add</span>
+                    {{ 'admin.btn_create'|trans }}
+                </a>
+            </header>
+
+            {% if categorias is empty %}
+                <p class="tarjeta-vacia">{{ 'admin.categories.empty'|trans }}</p>
+            {% else %}
+                <div class="envoltorio-tabla">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>{{ 'common.name'|trans }}</th>
+                                <th class="texto-centrado">{{ 'admin.categories.col.products'|trans }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for categoria in categorias|slice(0, 6) %}
+                            <tr>
+                                <td class="texto-primario-negrita">{{ categoria.nombre }}</td>
+                                <td class="texto-centrado">
+                                    <span class="contador-insignia">{{ categoria.articulos|length }}</span>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% endif %}
+
+            <footer class="pie-tarjeta pie-tarjeta--fin">
+                <a class="boton-ver-mas" href="{{ path('admin_categoria_index') }}">
+                    <span class="material-icons" aria-hidden="true">arrow_forward</span>
+                    {{ 'admin.btn_view_more'|trans }}
+                </a>
+            </footer>
+        </article>
+
+        {# ── Ubicaciones ── #}
+        <article class="tarjeta-maestra">
+            <header class="cabecera-tarjeta">
+                <h1>{{ 'admin.locations.title'|trans }}</h1>
+                <a class="boton-nuevo" href="{{ path('admin_ubicacion_nueva') }}">
+                    <span class="material-icons" aria-hidden="true">add</span>
+                    {{ 'admin.btn_create'|trans }}
+                </a>
+            </header>
+
+            {% if ubicaciones is empty %}
+                <p class="tarjeta-vacia">{{ 'admin.locations.empty'|trans }}</p>
+            {% else %}
+                <div class="envoltorio-tabla">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>{{ 'admin.locations.col.aisle'|trans }}</th>
+                                <th>{{ 'admin.locations.col.shelf'|trans }}</th>
+                                <th>{{ 'admin.locations.col.level'|trans }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for ubicacion in ubicaciones|slice(0, 6) %}
+                            <tr>
+                                <td class="texto-primario-negrita">{{ 'admin.locations.aisle_n'|trans({ '%n%': ubicacion.pasillo }) }}</td>
+                                <td>{{ 'admin.locations.shelf_n'|trans({ '%n%': ubicacion.estanteria }) }}</td>
+                                <td>{{ 'admin.locations.level_n'|trans({ '%n%': ubicacion.nivel }) }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% endif %}
+
+            <footer class="pie-tarjeta pie-tarjeta--fin">
+                <a class="boton-ver-mas" href="{{ path('admin_ubicacion_index') }}">
+                    <span class="material-icons" aria-hidden="true">arrow_forward</span>
+                    {{ 'admin.btn_view_more'|trans }}
+                </a>
+            </footer>
+        </article>
+
+    </div>
+</main>
+{% endblock %}

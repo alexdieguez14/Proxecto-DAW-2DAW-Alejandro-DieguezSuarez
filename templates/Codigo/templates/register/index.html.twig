@@ -1,65 +1,56 @@
-<!DOCTYPE html>
-<html lang="es">
+{% extends 'base.html.twig' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block title %}{{ 'auth.register.title'|trans }}{% endblock %}
+
+{% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('css/register.css') }}">
-    <title>Crear Cuenta</title>
-</head>
+{% endblock %}
 
-<body>
-    <header>
-        <h1>Crear Cuenta</h1>
-    </header>
+{% block body %}
+    {# h1 oculto visualmente pero accesible para lectores de pantalla #}
+    <h1>{{ 'auth.register.title'|trans }}</h1>
 
     <main>
         <div class="portada">
             <figure>
-                <img src="{{ asset('images/logo-transparent.png') }}" alt="Portada">
+                <img src="{{ asset('images/logo-transparent.png') }}" alt="O Porto do Sabor">
             </figure>
         </div>
-        <section class="card">
-                <h2>Descubre O Porto do Sabor</h2>
+
+        <section>
+            <header style="display:flex;justify-content:flex-end;width:100%;">
+                {% include 'components/_locale_switcher.html.twig' %}
+            </header>
+
+            <h2>{{ 'register.intro'|trans }}</h2>
             {% if isAdmin %}
-                <h3>Alta de empleado</h3>
-                <p class="sub">Crea un usuario con rol de Logística o Contabilidad.</p>
+                <h3>{{ 'register.employee.title'|trans }}</h3>
+                <p class="sub">{{ 'register.employee.subtitle'|trans }}</p>
             {% else %}
-                <h3>Crear cuenta</h3>
-                <p class="sub">Regístrate como cliente.</p>
-            {% endif %}
-
-            {% for flash in app.flashes('error') %}
-                <p class="alert-error">{{ flash }}</p>
-            {% endfor %}
-
-            {% if success %}
-                <p class="alert-success">{{ success }}</p>
+                <h3>{{ 'auth.register.title'|trans }}</h3>
+                <p class="sub">{{ 'register.client.subtitle'|trans }}</p>
             {% endif %}
 
             {{ form_start(form) }}
                 {% for field in form %}
                     {% if not field.rendered and field.vars.name != '_token' %}
-                    <p class="campos-formulario">
+                    <div class="form-row">
                         {{ form_label(field) }}
                         {{ form_widget(field) }}
                         {{ form_errors(field) }}
-                    </p>
+                    </div>
                     {% endif %}
                 {% endfor %}
                 <button type="submit" class="btn">
-                    {% if isAdmin %}Crear empleado{% else %}Registrarse{% endif %}
+                    {% if isAdmin %}{{ 'register.employee.submit'|trans }}{% else %}{{ 'auth.register.submit'|trans }}{% endif %}
                 </button>
             {{ form_end(form) }}
 
             {% if isAdmin %}
-                <a href="{{ path('app_admin') }}" class="back">Volver al panel</a>
+                <a href="{{ path('app_admin') }}" class="back">{{ 'register.back_to_admin'|trans }}</a>
             {% else %}
-                <a href="{{ path('app_login') }}" class="back">Ya tengo cuenta</a>
+                <a href="{{ path('app_acceso') }}" class="back">{{ 'auth.register.has_account'|trans }}</a>
             {% endif %}
         </section>
-</body>
-
-</html>
-
-
+    </main>
+{% endblock %}

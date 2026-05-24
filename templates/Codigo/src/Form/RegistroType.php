@@ -21,64 +21,64 @@ class RegistroType extends AbstractType
     {
         $builder
             ->add('nombre', TextType::class, [
-                'label' => 'Nombre',
+                'label' => 'form.label.name',
                 'attr'  => ['maxlength' => 100],
                 'constraints' => [
-                    new NotBlank(['message' => 'El nombre es obligatorio.']),
+                    new NotBlank(['message' => 'validation.name.required']),
                     new Length(['max' => 100]),
                 ],
             ])
             ->add('apellidos', TextType::class, [
-                'label' => 'Apellidos',
+                'label' => 'form.label.surname',
                 'attr'  => ['maxlength' => 150],
                 'constraints' => [
-                    new NotBlank(['message' => 'Los apellidos son obligatorios.']),
+                    new NotBlank(['message' => 'validation.surname.required']),
                     new Length(['max' => 150]),
                 ],
             ])
             ->add('telefono', TelType::class, [
-                'label'    => 'Teléfono (opcional)',
-                'required' => false,
-                'attr'     => ['maxlength' => 20],
+                'label' => 'form.label.phone',
+                'attr'  => ['maxlength' => 20],
                 'constraints' => [
+                    new NotBlank(['message' => 'validation.phone.required']),
                     new Length(['max' => 20]),
                     new Regex([
                         'pattern' => '/^\+?[\d\s\-()]{6,20}$/',
-                        'message' => 'El teléfono no tiene un formato válido.',
+                        'message' => 'validation.phone.invalid',
                         'match'   => true,
                     ]),
                 ],
             ])
             ->add('email', EmailType::class, [
-                'label' => 'Email',
+                'label' => 'form.label.email',
                 'attr'  => ['autocomplete' => 'email'],
                 'constraints' => [
-                    new NotBlank(['message' => 'El email es obligatorio.']),
-                    new Email(['message' => 'El email no es válido.']),
+                    new NotBlank(['message' => 'validation.email.required']),
+                    new Email(['message' => 'validation.email.invalid']),
                 ],
             ])
             ->add('password', PasswordType::class, [
-                'label' => 'Contraseña (mín. 8 caracteres)',
+                'label' => 'form.label.password',
                 'attr'  => ['autocomplete' => 'new-password'],
                 'constraints' => [
-                    new NotBlank(['message' => 'La contraseña es obligatoria.']),
+                    new NotBlank(['message' => 'validation.password.required']),
                     new Length([
                         'min'        => 8,
-                        'minMessage' => 'La contraseña debe tener al menos {{ limit }} caracteres.',
+                        'minMessage' => 'validation.password.min',
                     ]),
                 ],
             ]);
 
         if ($options['is_admin']) {
             $builder->add('role', ChoiceType::class, [
-                'label'   => 'Rol',
+                'label'   => 'form.label.role',
                 'choices' => [
-                    'Logística'    => 'ROLE_LOGISTICA',
-                    'Contabilidad' => 'ROLE_CONTABILIDAD',
+                    'contabilidad.role.logistica'    => 'ROLE_LOGISTICA',
+                    'contabilidad.role.contabilidad' => 'ROLE_CONTABILIDAD',
                 ],
-                'placeholder' => '-- Selecciona --',
+                'placeholder' => 'form.role.placeholder',
                 'constraints' => [
-                    new NotBlank(['message' => 'Debes seleccionar un rol.']),
+                    new NotBlank(['message' => 'validation.role.required']),
                 ],
             ]);
         }

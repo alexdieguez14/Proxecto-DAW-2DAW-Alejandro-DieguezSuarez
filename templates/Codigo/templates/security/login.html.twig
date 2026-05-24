@@ -1,32 +1,33 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'auth.login.title'|trans }}{% endblock %}
+
+{% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('css/login.css') }}">
-    <title>Iniciar sesión</title>
-</head>
-<body>
-    <header>
-        <h1>Inicia sesión</h1>
-    </header>
+{% endblock %}
+
+{% block body %}
+    {# h1 oculto visualmente pero accesible para lectores de pantalla #}
+    <h1>{{ 'auth.login.title'|trans }}</h1>
 
     <main>
         <div class="portada">
             <figure>
-                <img src="{{ asset('images/bateas.webp') }}" alt="Portada">
+                <img src="{{ asset('images/bateas.webp') }}" alt="">
             </figure>
         </div>
 
         <section>
-
             <figure>
-                <img src="{{ asset('images/logo-transparent.png') }}" alt="logo">
+                <img src="{{ asset('images/logo-transparent.png') }}" alt="O Porto do Sabor">
             </figure>
-        
 
-            <h2>Inicia sesión</h2>
-            <h3>Introduce tus credenciales para iniciar sesión.</h3>
+            <header style="display:flex;justify-content:flex-end;width:100%;">
+                {% include 'components/_locale_switcher.html.twig' %}
+            </header>
+
+            <h2>{{ 'auth.login.title'|trans }}</h2>
+            <h3>{{ 'auth.login.subtitle'|trans }}</h3>
 
             {% if error %}
                 <p class="alert-error">{{ error.messageKey|trans(error.messageData, 'security') }}</p>
@@ -43,14 +44,11 @@
                     {{ form_widget(form.password) }}
                     {{ form_errors(form.password) }}
                 </p>
-                {# El token CSRF lo gestiona el componente Security, no el Form #}
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-                <button type="submit" class="btn">Iniciar sesión</button>
+                <button type="submit" class="btn">{{ 'auth.login.submit'|trans }}</button>
             {{ form_end(form, {render_rest: false}) }}
 
-            <p class="link-registro">¿No tienes cuenta? <a href="{{ path('app_register') }}">Regístrate</a></p>
-
+            <p class="link-registro">{{ 'auth.login.no_account'|trans }} <a href="{{ path('app_registro') }}">{{ 'auth.login.register_link'|trans }}</a></p>
         </section>
     </main>
-</body>
-</html>
+{% endblock %}

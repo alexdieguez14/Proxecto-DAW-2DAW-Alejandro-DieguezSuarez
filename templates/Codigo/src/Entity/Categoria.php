@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: CategoriaRepository::class)]
+#[ORM\Table(name: 'categorias')]
 class Categoria
 {
     #[ORM\Id]
@@ -17,6 +18,12 @@ class Categoria
 
     #[ORM\Column(length: 100)]
     private ?string $nombre = null;
+
+    #[ORM\Column(length: 100, nullable: true)]
+    private ?string $nombreEn = null;
+
+    #[ORM\Column(length: 100, nullable: true)]
+    private ?string $nombreGl = null;
 
     #[ORM\OneToMany(targetEntity: Articulo::class, mappedBy: 'categoria')]
     private Collection $articulos;
@@ -40,6 +47,38 @@ class Categoria
     {
         $this->nombre = $nombre;
         return $this;
+    }
+
+    public function getNombreEn(): ?string
+    {
+        return $this->nombreEn;
+    }
+
+    public function setNombreEn(?string $nombreEn): static
+    {
+        $this->nombreEn = $nombreEn !== null && trim($nombreEn) !== '' ? $nombreEn : null;
+        return $this;
+    }
+
+    public function getNombreGl(): ?string
+    {
+        return $this->nombreGl;
+    }
+
+    public function setNombreGl(?string $nombreGl): static
+    {
+        $this->nombreGl = $nombreGl !== null && trim($nombreGl) !== '' ? $nombreGl : null;
+        return $this;
+    }
+
+    /** Devuelve el nombre en el locale solicitado, con fallback a ES. */
+    public function getNombreLocalizado(string $locale): ?string
+    {
+        return match ($locale) {
+            'en' => $this->nombreEn ?: $this->nombre,
+            'gl' => $this->nombreGl ?: $this->nombre,
+            default => $this->nombre,
+        };
     }
 
     public function getArticulos(): Collection
