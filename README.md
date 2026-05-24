@@ -13,7 +13,7 @@
 
 ## Taboleiro do proyecto
 
-Actualmente, el proyecto se encuentra en **fase de deseño**.  
+Actualmente, el proyecto se encuentra en **fase de codificación**.  
 
 
 ## Descrición
