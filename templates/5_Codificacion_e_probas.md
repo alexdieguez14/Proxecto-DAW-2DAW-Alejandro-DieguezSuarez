@@ -60,6 +60,7 @@ Para comprobar que todo funcionaba correctamente, fui haciendo pruebas manuales 
   **Pruebas con Mercure (Tiempo real):** Arranqué el servidor de Mercure a la vez que el de Symfony para comprobar si los mensajes llegaban bien. Al cambiar datos en el inventario, los cambios aparecían en la otra pantalla al instante sin retrasos.
 
 ### Problemas Encontrados y Soluciones:
+
    **Pantallazos de error en Twig por variables vacías.** Al hacer los componentes para el CRUD, si desde la base de datos venía un campo vacío (un `null`), la página web se rompía por completo con un error de Twig en lugar de simplemente no mostrar nada.
    
     *Solución:* Me tocó revisar los componentes y usar filtros de Twig para decirle al código qué hacer si un dato no venía, evitando así que se rompiera la aplicación.
