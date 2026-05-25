@@ -53,7 +53,7 @@ Para comprobar que todo funcionaba correctamente, fui haciendo pruebas manuales 
   
   **Pruebas de Validaciones (Formularios seguros):** Forcé errores a propósito en los formularios, como intentar guardar un cliente sin correo electrónico o meter texto en los campos de dinero de contabilidad. 
   
-  *Conclusión:* Las validaciones funcionan bien; la aplicación frena al usuario y le muestra un mensaje de aviso en lugar de enviar datos incorrectos al servidor.
+  **Conclusión:** Las validaciones funcionan bien; la aplicación frena al usuario y le muestra un mensaje de aviso en lugar de enviar datos incorrectos al servidor.
   
   **Pruebas de Visualizaciones** Estuve revisando todas las pantallas desde el inspector del navegador simulando diferentes tamaños de pantalla (móvil, tablet y ordenador). *Conclusión:* Aunque no este principalmente pensada para moviles la app se puede utiliza
   
@@ -61,12 +61,12 @@ Para comprobar que todo funcionaba correctamente, fui haciendo pruebas manuales 
 
 ### Problemas Encontrados y Soluciones:
 
-   **Pantallazos de error en Twig por variables vacías.** Al hacer los componentes para el CRUD, si desde la base de datos venía un campo vacío (un `null`), la página web se rompía por completo con un error de Twig en lugar de simplemente no mostrar nada.
-   
-    *Solución:* Me tocó revisar los componentes y usar filtros de Twig para decirle al código qué hacer si un dato no venía, evitando así que se rompiera la aplicación.
-    
-    **Elementos que se descolocaban en pantallas medianas.** Al pasar el diseño de móvil a ordenador con las Media Queries, en las tablets algunos elementos de la sección de Logística y Contabilidad quedaban apelotonados y visualmente no se entendían bien.
-    
-    *Solución:* Ajusté el css para que se viera bien.
+  **Pantallazos de error en Twig por variables vacías.** Al hacer los componentes para el CRUD, si desde la base de datos venía un campo vacío (un `null`), la página web se rompía por completo con un error de Twig en lugar de simplemente no mostrar nada.
+  
+  *Solución:* Me tocó revisar los componentes y usar filtros de Twig para decirle al código qué hacer si un dato no venía, evitando así que se rompiera la aplicación.
+  
+  **Elementos que se descolocaban en pantallas medianas.** Al pasar el diseño de móvil a ordenador con las Media Queries, en las tablets algunos elementos de la sección de Logística y Contabilidad quedaban apelotonados y visualmente no se entendían bien.
+  
+  *Solución:* Ajusté el css para que se viera bien.
 
 [**<-Anterior**](../../README.md)
