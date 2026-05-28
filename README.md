@@ -13,7 +13,7 @@
 
 ## Taboleiro do proyecto
 
-Actualmente, el proyecto se encuentra en **fase de codificación**.  
+Actualmente, el proyecto se encuentra en la fase 6.
 
 
 ## Descrición
@@ -24,13 +24,17 @@ Para su desarrollo se empleará **Symfony** como framework de backend en **PHP**
 
 ## Instalación / Posta en marcha
 
-> *EXPLICACIÓN*: Neste apartado describe con toda precisión e a poder ser coa maior simplicidade/facilidade posible, como poñer en marcha a túa aplicación para probala (nun ambiente local). Valorarase moi positivamente que este proceso sexa o máis fácil posible, cunha simple instrución (p. e. un script de instalación, descarga e posta en marcha dun contedor,...).
->
+Para poner en marcha la aplicación en local basta con tener instalado Docker.
+
+Todos los pasos detallados están en el README del repositorio:
+[https://github.com/alexdieguez14/O_porto_do_sabor_Proxecto_Docker](https://github.com/alexdieguez14/O_porto_do_sabor_Proxecto_Docker)
+
 
 ## Uso
 
-> *EXPLICACIÓN*: É este apartado describe brevemente como se usará a aplicación Web do proxecto. Describe o uso da interface web *só o uso** (a modo de sumario) *dos aspectos máis relevantes do seu funcionamento** (máxima brevidade, coma se fose un anuncio reclamo ou comercial).
->
+**O Porto do Sabor** es una plataforma de gestión empresarial con tienda online integrada. Los clientes pueden explorar el catálogo de productos del mar, añadirlos al carrito y realizar pedidos en segundos. El equipo de
+logística recibe los pedidos al instante, los prepara y los marca como enviados con número de seguimiento. Contabilidad controla en tiempo real los ingresos, gastos y facturas. El administrador gestiona el catálogo, los usuarios y tiene visión global del negocio. Todo desde un navegador, sin instalar nada.
+
 
 ## Sobre o autor
 
@@ -55,9 +59,19 @@ Para su desarrollo se empleará **Symfony** como framework de backend en **PHP**
 
 ## Guía de contribución
 
-> EXPLICACIÓN*: Tratándose dun proxecto de software libre, é moi importante que expoñas como se pode contribuír co teu proxecto. Algúns exemplos disto son realizar novas funcionalidades, corrección e/o optimización do código, realización de tests automatizados, novas interfaces de integración, desenvolvemento de plugins etc. Se o máis conciso que poidas.
+Las contribuciones son bienvenidas. Algunas formas de colaborar:
+  - **Nuevas funcionalidades:** abrir un issue describiendo la mejora antes de desarrollarla.
+  - **Corrección de bugs:** crear un fork, aplicar el fix en una rama y abrir un pull request.
+  - **Optimización del código:** refactorizaciones, mejoras de rendimiento o reducción de consultas a base de datos.
+  - **Tests automatizados:** añadir tests funcionales o unitarios con PHPUnit.
+  - **Traducciones:** ampliar los ficheros de traducción en `translations/` con nuevos idiomas.
+
 
 ## Links
 
-> EXPLICACIÓN*: Ligazóns externas e descipciones destas ligazóns que creas conveniente indicar aquí. Xeralmente xa van estar integrados coa túa mentación, pero se requires realizar unha listaxe deles, leste é o lugar.
->
+ - [Repositorio GitHub](https://github.com/alexdieguez14/O_porto_do_sabor_Proxecto_Docker)
+- [Manual de usuario](https://drive.google.com/file/d/17pPrJisV1TJu2sIAISHC4HFX6m2AfFw9/view?usp=sharing)
+- [Dump de la base de datos](https://drive.google.com/file/d/11J28MssptgUaJKxBfjO5KbraMawfDKEV/view?usp=sharing)
+- [Symfony 7.4 — Documentación oficial](https://symfony.com/doc/7.4/index.html)
+- [Docker — Documentación oficial](https://docs.docker.com/)
+
