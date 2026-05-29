@@ -57,7 +57,7 @@
   
   Para montar el proyecto y probarlo en local, seguir las instrucciones
   detalladas en el README del repositorio:
-  [https://github.com/alexdieguez14/O_porto_do_sabor_Proxecto_Docker](https://github.com/alexdieguez14/O_porto_do_sabor_Proxecto_Docker)
+  [https://github.com/alexdieguez14/O_porto_do_sabor_Proxecto_Docker](https://github.com/alexdieguez14/Proxecto-O-porto-do-sabor.git))
 
    Los roles disponibles en la aplicación son:
 
@@ -76,15 +76,13 @@
   datos:
 
   ```bash
-  docker exec symfony-mysql mysqldump -u root -proot symfony_db > backup_$(date
-  +%Y%m%d).sql
+  docker exec symfony-mysql mysqldump -u root -proot symfony_db > backup_$(date +%Y%m%d).sql
   ```
 
   Para restaurar un backup:
 
   ```bash
-  docker exec -i symfony-mysql mysql -u root -proot symfony_db <
-  backup_YYYYMMDD.sql
+  docker exec -i symfony-mysql mysql -u root -proot symfony_db < backup_YYYYMMDD.sql
   ```
 
   Se recomienda automatizar esta tarea mediante un cron que ejecute el comando
@@ -103,8 +101,7 @@
   Para hacer backup completo del volumen:
 
   ```bash
-  docker run --rm -v symfony-mysql:/data -v $(pwd):/backup alpine \
-    tar czf /backup/mysql_volume_$(date +%Y%m%d).tar.gz /data
+  docker run --rm -v symfony-mysql:/data -v $(pwd):/backup alpine \tar czf /backup/mysql_volume_$(date +%Y%m%d).tar.gz /data
   ```
 
   ---
