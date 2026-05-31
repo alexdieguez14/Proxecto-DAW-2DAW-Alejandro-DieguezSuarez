@@ -103,8 +103,7 @@
   Para hacer backup completo del volumen:
 
   ```bash
-  docker run --rm -v symfony-mysql:/data -v $(pwd):/backup alpine \
-    tar czf /backup/mysql_volume_$(date +%Y%m%d).tar.gz /data
+  docker run --rm -v symfony-mysql:/data -v $(pwd):/backup alpine \ tar czf /backup/mysql_volume_$(date +%Y%m%d).tar.gz /data
   ```
 
   ---
@@ -131,14 +130,10 @@
 
 #### Gestión de la seguridad
 
-- Todas las acciones de escritura (marcar pedidos, registrar pagos, crear
-  movimientos) están protegidas con **tokens CSRF**.
-- El acceso a cada sección está controlado mediante el sistema de roles de
-  **Symfony Security**.
-- Las contraseñas se almacenan cifradas con **bcrypt** mediante el componente
-  `password-hasher` de Symfony.
-- En caso de sospecha de acceso no autorizado, revocar las sesiones activas
-  reiniciando el contenedor de la aplicación:
+- Todas las acciones de escritura (marcar pedidos, registrar pagos, crear  movimientos) están protegidas con **tokens CSRF**.
+- El acceso a cada sección está controlado mediante el sistema de roles de **Symfony Security**.
+- Las contraseñas se almacenan cifradas con **bcrypt** mediante el componente `password-hasher` de Symfony.
+- En caso de sospecha de acceso no autorizado, revocar las sesiones activas reiniciando el contenedor de la aplicación:
 
   ```bash
   docker restart symfony-app

@@ -18,7 +18,9 @@
 
 ## 3- Diagrama de Base de Datos
 
+![diagrama er](imagenes/er.png)
 
+![diagramadeclases](imagenes/clases.png)
 
 
 ## 4- Deseño de interface de usuarios

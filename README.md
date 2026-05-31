@@ -42,7 +42,13 @@ logística recibe los pedidos al instante, los prepara y los marca como enviados
 
 ## Licenza
 
-> *EXPLICACIÓN*: É requisito INDISPENSABLE o licenciar explicitamente o proxecto software. Recoméndase licenciar con GNU Free mentation License Version 1.3*. Crear un ficheiro `LICENSE` na raiz do repo, co teu ficheiro de licenza. Lembra que se empregas unha licenza de software libre estás a autorizar a derivación da túa obra baixo a mesma licenza que elixas, podendo dar continuidade, p. e. outro alumno, para continuar o teu proxecto noutro curso.
+El proyecto está licenciado bajo la GNU Free Documentation License (GNU FDL) Versión 1.3, tal y como recomienda el enunciado. Esta licencia garantiza las siguientes libertades:
+
+- Libertad de uso: Cualquier persona puede usar, copiar y distribuir el proyecto libremente, tanto con fines comerciales como no comerciales.
+- Libertad de modificación: Se permite modificar el proyecto y distribuir versiones derivadas, siempre que se mantenga la misma licencia (principio de copyleft).
+- Continuidad del proyecto: Al ser una licencia libre, otro alumno o desarrollador puede tomar este proyecto como base y continuar su desarrollo en cursos futuros, respetando los mismos términos de la licencia original.
+- Reconocimiento de autoría: La licencia preserva el crédito al autor original (AlexDieguez14), sin que se le pueda responsabilizar de modificaciones realizadas por terceros.
+
 
 ## Índice
 
