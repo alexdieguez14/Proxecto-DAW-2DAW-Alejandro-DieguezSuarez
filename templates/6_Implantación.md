@@ -6,6 +6,7 @@
       - [Requisitos de hardware](#requisitos-de-hardware)
       - [Software necesario](#software-necesario)
       - [Servicios Docker Compose](#servicios-docker-compose)
+      - [Plan de despliegue](#plan-de-despliegue)
     - [1.2- Administración do sistema](#12--administración-do-sistema)
       - [Copias de seguridad de la base de datos](#copias-de-seguridad-de-la-base-de-datos)
       - [Copias de seguridad del sistema](#copias-de-seguridad-del-sistema)
@@ -67,6 +68,45 @@
   | `ROLE_LOGISTICA` | Gestión de pedidos e inventario |
   | `ROLE_CONTABILIDAD` | Gestión financiera y facturación |
   | `ROLE_CLIENTE` | Tienda online y cuenta personal |
+
+
+ #### Plan de despliegue
+
+  VPS con Docker
+
+  Contratar un VPS
+  - Proveedor: Hetzner, DigitalOcean o Contabo 
+  - Mínimo: 2GB RAM, 1 vCPU, Ubuntu 22.04
+  - Abrir puertos: 80, 443, 22
+
+  Preparar el servidor
+  - Instalar Docker y Docker Compose
+
+  Clonar el repositorio
+  
+  Ajustar configuración para producción
+  - Cambiar .env: APP_ENV=prod, credenciales reales de BD, JWT secret de Mercure
+  - Quitar el contenedor phpmyadmin del docker-compose.yml 
+  - Apuntar Mercure a la URL pública real en mercure.yaml
+
+  Añadir Nginx como proxy inverso + SSL
+  - Instalar Nginx en el host (fuera de Docker)
+  - Configurar un virtualhost que redirija al contenedor en :8000
+  - Obtener certificado SSL gratuito con Certbot + Let's Encrypt
+
+  Apuntar el dominio
+  - Comprar dominio
+  - Crear registro DNS tipo A apuntando a la IP del VPS
+
+  Arrancar la app
+  docker compose up -d
+  docker compose exec app php bin/console doctrine:migrations:migrate
+  docker compose exec app php bin/console cache:clear --env=prod
+
+  Mantenimiento
+  - Renovación SSL automática vía cron de Certbot
+  - Backups de MySQL con mysqldump programado
+
 
 ### 1.2- Administración do sistema
 
