@@ -75,7 +75,7 @@ Las contribuciones son bienvenidas. Algunas formas de colaborar:
 
 ## Links
 
- - [Repositorio GitHub](https://github.com/alexdieguez14/O_porto_do_sabor_Proxecto_Docker)
+ - [Repositorio GitHub](https://github.com/alexdieguez14/Proxecto-O-porto-do-sabor.git)
 - [Manual de usuario](https://drive.google.com/file/d/17pPrJisV1TJu2sIAISHC4HFX6m2AfFw9/view?usp=sharing)
 - [Dump de la base de datos](https://drive.google.com/file/d/11J28MssptgUaJKxBfjO5KbraMawfDKEV/view?usp=sharing)
 - [Symfony 7.4 — Documentación oficial](https://symfony.com/doc/7.4/index.html)
