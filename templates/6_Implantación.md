@@ -101,11 +101,7 @@
   Para hacer backup completo del volumen:
 
   ```bash
-<<<<<<< HEAD
   docker run --rm -v symfony-mysql:/data -v $(pwd):/backup alpine \ tar czf /backup/mysql_volume_$(date +%Y%m%d).tar.gz /data
-=======
-  docker run --rm -v symfony-mysql:/data -v $(pwd):/backup alpine \tar czf /backup/mysql_volume_$(date +%Y%m%d).tar.gz /data
->>>>>>> 79c5f454baffa5d43b37132bc0b20e4be88a985e
   ```
 
   ---
