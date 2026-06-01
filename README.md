@@ -38,7 +38,11 @@ logística recibe los pedidos al instante, los prepara y los marca como enviados
 
 ## Sobre o autor
 
-> *EXPLICACIÓN*: Realiza unha breve descrición de quen es (perfil profesional), os teus puntos fortes, ou tecnoloxías que máis dominas... a motivación do proxecto, tendo sobre todo en conta un nicho de mercado sen explotar.. *Non máis de 200 palabras**. Indica a forma fiable de contactar contigo durante o proceso de creación do proxecto.
+Mi nombre es Alejandro y soy estudiante de Desarrollo de Aplicaciones Web (DAW). Tengo conocimientos en HTML, CSS, JavaScript, PHP y bases de datos. Me considero una persona responsable, con capacidad de aprendizaje y motivación por seguir creciendo profesionalmente en el sector tecnológico.
+
+La idea de este proyecto surge de la oportunidad de ofrecer una solución útil en un nicho de mercado con potencial de crecimiento, aplicando los conocimientos adquiridos durante mi formación y desarrollando una propuesta innovadora y funcional.
+
+Para cualquier comunicación relacionada con el proyecto, el medio de contacto más fiable será el correo electrónico y el teléfono móvil.
 
 ## Licenza
 
