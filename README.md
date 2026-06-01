@@ -13,7 +13,7 @@
 
 ## Taboleiro do proyecto
 
-Actualmente, el proyecto se encuentra en la fase 6.
+Actualmente, el proyecto ha sido entregado y se encuentra pendiente de la presentación final.
 
 
 ## Descrición
