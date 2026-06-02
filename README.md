@@ -27,7 +27,7 @@ Para su desarrollo se empleará **Symfony** como framework de backend en **PHP**
 Para poner en marcha la aplicación en local basta con tener instalado Docker.
 
 Todos los pasos detallados están en el README del repositorio:
-[https://github.com/alexdieguez14/O_porto_do_sabor_Proxecto_Docker](https://github.com/alexdieguez14/O_porto_do_sabor_Proxecto_Docker)
+[https://github.com/alexdieguez14/Proxecto-O-porto-do-sabor.git](https://github.com/alexdieguez14/Proxecto-O-porto-do-sabor)
 
 
 ## Uso
